@@ -1,0 +1,39 @@
+$date
+	Sat May 09 21:59:20 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module t1_tb $end
+$var wire 1 ! even $end
+$var reg 16 " data_in [15:0] $end
+$scope module dut0 $end
+$var wire 16 # in [15:0] $end
+$var wire 1 ! even_bit $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 #
+b0 "
+0!
+$end
+#10
+1!
+b1 "
+b1 #
+#20
+0!
+b11 "
+b11 #
+#30
+b1111111111111111 "
+b1111111111111111 #
+#40
+b1010010110100101 "
+b1010010110100101 #
+#50
