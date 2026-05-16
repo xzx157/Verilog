@@ -1,0 +1,170 @@
+$date
+	Sat May 16 21:50:02 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ms
+$end
+$scope module t2_tb $end
+$var wire 2 ! lb [1:0] $end
+$var wire 2 " la [1:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ reset $end
+$var reg 1 % sa $end
+$var reg 1 & sb $end
+$scope module dut0 $end
+$var wire 1 # clk $end
+$var wire 1 $ reset $end
+$var wire 1 % sa $end
+$var wire 1 & sb $end
+$var reg 4 ' counter [3:0] $end
+$var reg 2 ( la [1:0] $end
+$var reg 2 ) lb [1:0] $end
+$var reg 2 * next_state [1:0] $end
+$var reg 2 + state [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx +
+b0 *
+bx )
+bx (
+bx '
+0&
+0%
+0$
+0#
+bx "
+bx !
+$end
+#500
+b10 "
+b10 (
+b0 !
+b0 )
+b0 '
+b0 +
+1$
+#2500
+1#
+#5000
+0#
+#5500
+0$
+#7500
+1#
+#10000
+0#
+#10500
+b1 *
+1%
+#12500
+b1 !
+b1 )
+b10 *
+b1 +
+1#
+#15000
+0#
+#15500
+1&
+#17500
+b0 "
+b0 (
+b10 !
+b10 )
+b10 +
+1#
+#20000
+0#
+#22500
+b1 '
+1#
+#25000
+0#
+#27500
+b10 '
+1#
+#30000
+0#
+#32500
+b11 '
+1#
+#35000
+0#
+#37500
+b100 '
+1#
+#40000
+0#
+#42500
+b11 *
+b101 '
+1#
+#45000
+0#
+#47500
+b1 "
+b1 (
+b0 *
+b110 '
+b11 +
+1#
+#50000
+0#
+#52500
+b10 "
+b10 (
+b0 !
+b0 )
+b0 '
+b0 +
+1#
+#55000
+0#
+#57500
+b1 '
+1#
+#60000
+0#
+#62500
+b10 '
+1#
+#65000
+0#
+#67500
+b11 '
+1#
+#70000
+0#
+#72500
+b100 '
+1#
+#75000
+0#
+#75500
+0%
+#77500
+b0 '
+1#
+#80000
+0#
+#82500
+1#
+#85000
+0#
+#85500
+0&
+#87500
+1#
+#90000
+0#
+#92500
+1#
+#95000
+0#
+#95500
