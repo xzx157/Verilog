@@ -1,0 +1,570 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP4 for linux64 - Mar 02, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Logic-only synthesis target for PPA.
+# Excludes SRAM macro instances, top controller, input memory, result memory, and data memory.
+set MAIN_MODULE "accelerator_logic_top"
+accelerator_logic_top
+set CLK_cycle 2000
+2000
+set PDK_DB_CANDIDATES [list     "../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db"     "../pdk/NanGate_15nm_OCL_slow_conditional_ccs.db"     "../../lab7/ExampleDesign-15nm(1)/ExampleDesign-15nm/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db" ]
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db ../pdk/NanGate_15nm_OCL_slow_conditional_ccs.db ../../lab7/ExampleDesign-15nm(1)/ExampleDesign-15nm/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+set PDK_DB ""
+foreach candidate $PDK_DB_CANDIDATES {
+    if {[file exists $candidate]} {
+        set PDK_DB $candidate
+        break
+    }
+}
+if {$PDK_DB eq ""} {
+    puts "ERROR: Cannot find NanGate db. Checked: $PDK_DB_CANDIDATES"
+    exit 2
+}
+set link_library $PDK_DB
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+set target_library $PDK_DB
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+read_file -format sverilog [list     "../rtl/accelerator_sram_ext.v"     "../rtl/accelerator_logic_top.v" ]
+Loading db file '/home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/eda/Synopsys/syn/R-2020.09-SP4/libraries/syn/gtech.db'
+Loading db file '/opt/eda/Synopsys/syn/R-2020.09-SP4/libraries/syn/standard.sldb'
+  Loading link library 'NanGate_15nm_OCL'
+  Loading link library 'gtech'
+Loading sverilog files: '/home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v' '/home/almalinux/Verilog/main/rtl/accelerator_logic_top.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v
+Compiling source file /home/almalinux/Verilog/main/rtl/accelerator_logic_top.v
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:18: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:20: unsigned to signed assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine pe_mac line 16 in file
+		'/home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     acc_out_reg     | Flip-flop |  25   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/almalinux/Verilog/main/rtl/pe_mac.db:pe_mac'
+Loaded 3 designs.
+Current design is 'pe_mac'.
+pe_mac accelerator_sram_ext accelerator_logic_top
+current_design $MAIN_MODULE
+Current design is 'accelerator_logic_top'.
+{accelerator_logic_top}
+link > "log/link.rpt"
+check_design > "log/check_design.rpt"
+uniquify
+Information: Uniquified 64 instances of design 'pe_mac'. (OPT-1056)
+1
+catch {set_wire_load_model -name ZeroWireload}
+Error: Wire load 'ZeroWireload' not found. (UID-40)
+0
+set_max_area 0
+1
+set_fix_multiple_port_nets -outputs -feedthroughs -buffer_constants
+1
+set_load 0.1 [all_outputs]
+1
+set_max_transition 500 [current_design_name]
+1
+set_max_fanout 16.0 [current_design_name]
+1
+create_clock -name "sysclk" -period $CLK_cycle [get_ports clk]
+1
+set_clock_uncertainty 100 "sysclk"
+1
+set_ideal_network [get_ports clk]
+1
+compile -map_effort medium
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.4 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 64 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'pe_mac_0'
+  Processing 'accelerator_sram_ext'
+  Processing 'accelerator_logic_top'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width25' (rpl)
+  Processing 'DW01_add_width25'
+  Building model 'DW01_add_width25' (cla)
+  Processing 'DW01_add_width25'
+  Allocating blocks in 'DW02_mult_A_width8_B_width8'
+  Building model 'DW01_MUX'
+  Processing 'DW01_MUX'
+  Building model 'DW01_mmux_width2'
+  Processing 'DW01_mmux_width2'
+  Building model 'DW01_mmux_width3'
+  Processing 'DW01_mmux_width3'
+  Building model 'DW01_mmux_width4'
+  Processing 'DW01_mmux_width4'
+  Building model 'DW01_mmux_width5'
+  Processing 'DW01_mmux_width5'
+  Building model 'DW01_add_width14' (cla)
+  Processing 'DW01_add_width14'
+  Building model 'DW02_mult_A_width8_B_width8' (csa)
+  Processing 'DW02_mult_A_width8_B_width8'
+  Processing 'pe_mac_55_DW01_add_0'
+  Processing 'pe_mac_55_DW02_mult_0'
+  Processing 'pe_mac_55_DW01_add_1'
+  Processing 'pe_mac_47_DW01_add_0_DW01_add_2'
+  Processing 'pe_mac_47_DW02_mult_0_DW02_mult_1'
+  Processing 'pe_mac_47_DW01_add_1_DW01_add_3'
+  Processing 'pe_mac_39_DW01_add_0_DW01_add_4'
+  Processing 'pe_mac_39_DW02_mult_0_DW02_mult_2'
+  Processing 'pe_mac_39_DW01_add_1_DW01_add_5'
+  Processing 'pe_mac_31_DW01_add_0_DW01_add_6'
+  Processing 'pe_mac_31_DW02_mult_0_DW02_mult_3'
+  Processing 'pe_mac_31_DW01_add_1_DW01_add_7'
+  Processing 'pe_mac_23_DW01_add_0_DW01_add_8'
+  Processing 'pe_mac_23_DW02_mult_0_DW02_mult_4'
+  Processing 'pe_mac_23_DW01_add_1_DW01_add_9'
+  Processing 'pe_mac_15_DW01_add_0_DW01_add_10'
+  Processing 'pe_mac_15_DW02_mult_0_DW02_mult_5'
+  Processing 'pe_mac_15_DW01_add_1_DW01_add_11'
+  Processing 'pe_mac_7_DW01_add_0_DW01_add_12'
+  Processing 'pe_mac_7_DW02_mult_0_DW02_mult_6'
+  Processing 'pe_mac_7_DW01_add_1_DW01_add_13'
+  Processing 'pe_mac_63_DW01_add_0_DW01_add_14'
+  Processing 'pe_mac_63_DW02_mult_0_DW02_mult_7'
+  Processing 'pe_mac_63_DW01_add_1_DW01_add_15'
+  Processing 'pe_mac_62_DW01_add_0_DW01_add_16'
+  Processing 'pe_mac_62_DW02_mult_0_DW02_mult_8'
+  Processing 'pe_mac_62_DW01_add_1_DW01_add_17'
+  Processing 'pe_mac_54_DW01_add_0_DW01_add_18'
+  Processing 'pe_mac_54_DW02_mult_0_DW02_mult_9'
+  Processing 'pe_mac_54_DW01_add_1_DW01_add_19'
+  Processing 'pe_mac_46_DW01_add_0_DW01_add_20'
+  Processing 'pe_mac_46_DW02_mult_0_DW02_mult_10'
+  Processing 'pe_mac_46_DW01_add_1_DW01_add_21'
+  Processing 'pe_mac_38_DW01_add_0_DW01_add_22'
+  Processing 'pe_mac_38_DW02_mult_0_DW02_mult_11'
+  Processing 'pe_mac_38_DW01_add_1_DW01_add_23'
+  Processing 'pe_mac_30_DW01_add_0_DW01_add_24'
+  Processing 'pe_mac_30_DW02_mult_0_DW02_mult_12'
+  Processing 'pe_mac_30_DW01_add_1_DW01_add_25'
+  Processing 'pe_mac_22_DW01_add_0_DW01_add_26'
+  Processing 'pe_mac_22_DW02_mult_0_DW02_mult_13'
+  Processing 'pe_mac_22_DW01_add_1_DW01_add_27'
+  Processing 'pe_mac_14_DW01_add_0_DW01_add_28'
+  Processing 'pe_mac_14_DW02_mult_0_DW02_mult_14'
+  Processing 'pe_mac_14_DW01_add_1_DW01_add_29'
+  Processing 'pe_mac_6_DW01_add_0_DW01_add_30'
+  Processing 'pe_mac_6_DW02_mult_0_DW02_mult_15'
+  Processing 'pe_mac_6_DW01_add_1_DW01_add_31'
+  Processing 'pe_mac_61_DW01_add_0_DW01_add_32'
+  Processing 'pe_mac_61_DW02_mult_0_DW02_mult_16'
+  Processing 'pe_mac_61_DW01_add_1_DW01_add_33'
+  Processing 'pe_mac_53_DW01_add_0_DW01_add_34'
+  Processing 'pe_mac_53_DW02_mult_0_DW02_mult_17'
+  Processing 'pe_mac_53_DW01_add_1_DW01_add_35'
+  Processing 'pe_mac_45_DW01_add_0_DW01_add_36'
+  Processing 'pe_mac_45_DW02_mult_0_DW02_mult_18'
+  Processing 'pe_mac_45_DW01_add_1_DW01_add_37'
+  Processing 'pe_mac_37_DW01_add_0_DW01_add_38'
+  Processing 'pe_mac_37_DW02_mult_0_DW02_mult_19'
+  Processing 'pe_mac_37_DW01_add_1_DW01_add_39'
+  Processing 'pe_mac_29_DW01_add_0_DW01_add_40'
+  Processing 'pe_mac_29_DW02_mult_0_DW02_mult_20'
+  Processing 'pe_mac_29_DW01_add_1_DW01_add_41'
+  Processing 'pe_mac_21_DW01_add_0_DW01_add_42'
+  Processing 'pe_mac_21_DW02_mult_0_DW02_mult_21'
+  Processing 'pe_mac_21_DW01_add_1_DW01_add_43'
+  Processing 'pe_mac_13_DW01_add_0_DW01_add_44'
+  Processing 'pe_mac_13_DW02_mult_0_DW02_mult_22'
+  Processing 'pe_mac_13_DW01_add_1_DW01_add_45'
+  Processing 'pe_mac_5_DW01_add_0_DW01_add_46'
+  Processing 'pe_mac_5_DW02_mult_0_DW02_mult_23'
+  Processing 'pe_mac_5_DW01_add_1_DW01_add_47'
+  Processing 'pe_mac_60_DW01_add_0_DW01_add_48'
+  Processing 'pe_mac_60_DW02_mult_0_DW02_mult_24'
+  Processing 'pe_mac_60_DW01_add_1_DW01_add_49'
+  Processing 'pe_mac_52_DW01_add_0_DW01_add_50'
+  Processing 'pe_mac_52_DW02_mult_0_DW02_mult_25'
+  Processing 'pe_mac_52_DW01_add_1_DW01_add_51'
+  Processing 'pe_mac_44_DW01_add_0_DW01_add_52'
+  Processing 'pe_mac_44_DW02_mult_0_DW02_mult_26'
+  Processing 'pe_mac_44_DW01_add_1_DW01_add_53'
+  Processing 'pe_mac_36_DW01_add_0_DW01_add_54'
+  Processing 'pe_mac_36_DW02_mult_0_DW02_mult_27'
+  Processing 'pe_mac_36_DW01_add_1_DW01_add_55'
+  Processing 'pe_mac_28_DW01_add_0_DW01_add_56'
+  Processing 'pe_mac_28_DW02_mult_0_DW02_mult_28'
+  Processing 'pe_mac_28_DW01_add_1_DW01_add_57'
+  Processing 'pe_mac_20_DW01_add_0_DW01_add_58'
+  Processing 'pe_mac_20_DW02_mult_0_DW02_mult_29'
+  Processing 'pe_mac_20_DW01_add_1_DW01_add_59'
+  Processing 'pe_mac_12_DW01_add_0_DW01_add_60'
+  Processing 'pe_mac_12_DW02_mult_0_DW02_mult_30'
+  Processing 'pe_mac_12_DW01_add_1_DW01_add_61'
+  Processing 'pe_mac_4_DW01_add_0_DW01_add_62'
+  Processing 'pe_mac_4_DW02_mult_0_DW02_mult_31'
+  Processing 'pe_mac_4_DW01_add_1_DW01_add_63'
+  Processing 'pe_mac_59_DW01_add_0_DW01_add_64'
+  Processing 'pe_mac_59_DW02_mult_0_DW02_mult_32'
+  Processing 'pe_mac_59_DW01_add_1_DW01_add_65'
+  Processing 'pe_mac_51_DW01_add_0_DW01_add_66'
+  Processing 'pe_mac_51_DW02_mult_0_DW02_mult_33'
+  Processing 'pe_mac_51_DW01_add_1_DW01_add_67'
+  Processing 'pe_mac_43_DW01_add_0_DW01_add_68'
+  Processing 'pe_mac_43_DW02_mult_0_DW02_mult_34'
+  Processing 'pe_mac_43_DW01_add_1_DW01_add_69'
+  Processing 'pe_mac_35_DW01_add_0_DW01_add_70'
+  Processing 'pe_mac_35_DW02_mult_0_DW02_mult_35'
+  Processing 'pe_mac_35_DW01_add_1_DW01_add_71'
+  Processing 'pe_mac_27_DW01_add_0_DW01_add_72'
+  Processing 'pe_mac_27_DW02_mult_0_DW02_mult_36'
+  Processing 'pe_mac_27_DW01_add_1_DW01_add_73'
+  Processing 'pe_mac_19_DW01_add_0_DW01_add_74'
+  Processing 'pe_mac_19_DW02_mult_0_DW02_mult_37'
+  Processing 'pe_mac_19_DW01_add_1_DW01_add_75'
+  Processing 'pe_mac_11_DW01_add_0_DW01_add_76'
+  Processing 'pe_mac_11_DW02_mult_0_DW02_mult_38'
+  Processing 'pe_mac_11_DW01_add_1_DW01_add_77'
+  Processing 'pe_mac_3_DW01_add_0_DW01_add_78'
+  Processing 'pe_mac_3_DW02_mult_0_DW02_mult_39'
+  Processing 'pe_mac_3_DW01_add_1_DW01_add_79'
+  Processing 'pe_mac_58_DW01_add_0_DW01_add_80'
+  Processing 'pe_mac_58_DW02_mult_0_DW02_mult_40'
+  Processing 'pe_mac_58_DW01_add_1_DW01_add_81'
+  Processing 'pe_mac_50_DW01_add_0_DW01_add_82'
+  Processing 'pe_mac_50_DW02_mult_0_DW02_mult_41'
+  Processing 'pe_mac_50_DW01_add_1_DW01_add_83'
+  Processing 'pe_mac_42_DW01_add_0_DW01_add_84'
+  Processing 'pe_mac_42_DW02_mult_0_DW02_mult_42'
+  Processing 'pe_mac_42_DW01_add_1_DW01_add_85'
+  Processing 'pe_mac_34_DW01_add_0_DW01_add_86'
+  Processing 'pe_mac_34_DW02_mult_0_DW02_mult_43'
+  Processing 'pe_mac_34_DW01_add_1_DW01_add_87'
+  Processing 'pe_mac_26_DW01_add_0_DW01_add_88'
+  Processing 'pe_mac_26_DW02_mult_0_DW02_mult_44'
+  Processing 'pe_mac_26_DW01_add_1_DW01_add_89'
+  Processing 'pe_mac_18_DW01_add_0_DW01_add_90'
+  Processing 'pe_mac_18_DW02_mult_0_DW02_mult_45'
+  Processing 'pe_mac_18_DW01_add_1_DW01_add_91'
+  Processing 'pe_mac_10_DW01_add_0_DW01_add_92'
+  Processing 'pe_mac_10_DW02_mult_0_DW02_mult_46'
+  Processing 'pe_mac_10_DW01_add_1_DW01_add_93'
+  Processing 'pe_mac_2_DW01_add_0_DW01_add_94'
+  Processing 'pe_mac_2_DW02_mult_0_DW02_mult_47'
+  Processing 'pe_mac_2_DW01_add_1_DW01_add_95'
+  Processing 'pe_mac_57_DW01_add_0_DW01_add_96'
+  Processing 'pe_mac_57_DW02_mult_0_DW02_mult_48'
+  Processing 'pe_mac_57_DW01_add_1_DW01_add_97'
+  Processing 'pe_mac_49_DW01_add_0_DW01_add_98'
+  Processing 'pe_mac_49_DW02_mult_0_DW02_mult_49'
+  Processing 'pe_mac_49_DW01_add_1_DW01_add_99'
+  Processing 'pe_mac_41_DW01_add_0_DW01_add_100'
+  Processing 'pe_mac_41_DW02_mult_0_DW02_mult_50'
+  Processing 'pe_mac_41_DW01_add_1_DW01_add_101'
+  Processing 'pe_mac_33_DW01_add_0_DW01_add_102'
+  Processing 'pe_mac_33_DW02_mult_0_DW02_mult_51'
+  Processing 'pe_mac_33_DW01_add_1_DW01_add_103'
+  Processing 'pe_mac_25_DW01_add_0_DW01_add_104'
+  Processing 'pe_mac_25_DW02_mult_0_DW02_mult_52'
+  Processing 'pe_mac_25_DW01_add_1_DW01_add_105'
+  Processing 'pe_mac_17_DW01_add_0_DW01_add_106'
+  Processing 'pe_mac_17_DW02_mult_0_DW02_mult_53'
+  Processing 'pe_mac_17_DW01_add_1_DW01_add_107'
+  Processing 'pe_mac_9_DW01_add_0_DW01_add_108'
+  Processing 'pe_mac_9_DW02_mult_0_DW02_mult_54'
+  Processing 'pe_mac_9_DW01_add_1_DW01_add_109'
+  Processing 'pe_mac_1_DW01_add_0_DW01_add_110'
+  Processing 'pe_mac_1_DW02_mult_0_DW02_mult_55'
+  Processing 'pe_mac_1_DW01_add_1_DW01_add_111'
+  Processing 'pe_mac_56_DW01_add_0_DW01_add_112'
+  Processing 'pe_mac_56_DW02_mult_0_DW02_mult_56'
+  Processing 'pe_mac_56_DW01_add_1_DW01_add_113'
+  Processing 'pe_mac_48_DW01_add_0_DW01_add_114'
+  Processing 'pe_mac_48_DW02_mult_0_DW02_mult_57'
+  Processing 'pe_mac_48_DW01_add_1_DW01_add_115'
+  Processing 'pe_mac_40_DW01_add_0_DW01_add_116'
+  Processing 'pe_mac_40_DW02_mult_0_DW02_mult_58'
+  Processing 'pe_mac_40_DW01_add_1_DW01_add_117'
+  Processing 'pe_mac_32_DW01_add_0_DW01_add_118'
+  Processing 'pe_mac_32_DW02_mult_0_DW02_mult_59'
+  Processing 'pe_mac_32_DW01_add_1_DW01_add_119'
+  Processing 'pe_mac_24_DW01_add_0_DW01_add_120'
+  Processing 'pe_mac_24_DW02_mult_0_DW02_mult_60'
+  Processing 'pe_mac_24_DW01_add_1_DW01_add_121'
+  Processing 'pe_mac_16_DW01_add_0_DW01_add_122'
+  Processing 'pe_mac_16_DW02_mult_0_DW02_mult_61'
+  Processing 'pe_mac_16_DW01_add_1_DW01_add_123'
+  Processing 'pe_mac_8_DW01_add_0_DW01_add_124'
+  Processing 'pe_mac_8_DW02_mult_0_DW02_mult_62'
+  Processing 'pe_mac_8_DW01_add_1_DW01_add_125'
+  Processing 'pe_mac_0_DW01_add_0_DW01_add_126'
+  Processing 'pe_mac_0_DW02_mult_0_DW02_mult_63'
+  Processing 'pe_mac_0_DW01_add_1_DW01_add_127'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:13   12016.2      0.00       0.0     722.0                          
+    0:00:13   12016.2      0.00       0.0     722.0                          
+    0:00:17   12991.1      0.00       0.0       0.0                          
+    0:00:17   12991.1      0.00       0.0       0.0                          
+    0:00:17   12991.1      0.00       0.0       0.0                          
+    0:00:17   12991.1      0.00       0.0       0.0                          
+    0:00:18   12991.1      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:21   10844.3      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:22   10812.8      0.00       0.0       0.0                          
+    0:00:23   10812.8      0.00       0.0       0.0                          
+    0:00:23   10790.4      0.00       0.0       0.0                          
+    0:00:23   10787.2      0.00       0.0       0.0                          
+    0:00:23   10783.6      0.00       0.0       0.0                          
+    0:00:23   10757.8      0.00       0.0       0.0                          
+    0:00:23   10751.1      0.00       0.0       0.0                          
+    0:00:23   10731.0      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+    0:00:25   10724.3      0.00       0.0       0.0                          
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'accelerator_logic_top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'u_compute_core/gen_rows[0].gen_cols[1].u_pe_mac/clk': 1600 load(s), 1 driver(s)
+1
+write_file -format ddc -hier -o "log/WorkSpace.ddc"
+Writing ddc file 'log/WorkSpace.ddc'.
+1
+report_power > "log/power.rpt"
+report_area > "log/area.rpt"
+report_timing -max_paths 10 > "log/timing.rpt"
+report_constraint -all_violators > "log/constraints.rpt"
+write -hier -f verilog -output "${MAIN_MODULE}.vg"
+Writing verilog file '/home/almalinux/Verilog/main/syn/accelerator_logic_top.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Changed wire name a_sram_rdata[0] to a_sram_rdata_0 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[1] to a_sram_rdata_1 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[2] to a_sram_rdata_2 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[3] to a_sram_rdata_3 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[4] to a_sram_rdata_4 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[5] to a_sram_rdata_5 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[6] to a_sram_rdata_6 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[7] to a_sram_rdata_7 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[8] to a_sram_rdata_8 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[9] to a_sram_rdata_9 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[10] to a_sram_rdata_10 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[11] to a_sram_rdata_11 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[12] to a_sram_rdata_12 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[13] to a_sram_rdata_13 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[14] to a_sram_rdata_14 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[15] to a_sram_rdata_15 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[16] to a_sram_rdata_16 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[17] to a_sram_rdata_17 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[18] to a_sram_rdata_18 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[19] to a_sram_rdata_19 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[20] to a_sram_rdata_20 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[21] to a_sram_rdata_21 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[22] to a_sram_rdata_22 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[23] to a_sram_rdata_23 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[24] to a_sram_rdata_24 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[25] to a_sram_rdata_25 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[26] to a_sram_rdata_26 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[27] to a_sram_rdata_27 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[28] to a_sram_rdata_28 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[29] to a_sram_rdata_29 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[30] to a_sram_rdata_30 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[31] to a_sram_rdata_31 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[32] to a_sram_rdata_32 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[33] to a_sram_rdata_33 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[34] to a_sram_rdata_34 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[35] to a_sram_rdata_35 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[36] to a_sram_rdata_36 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[37] to a_sram_rdata_37 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[38] to a_sram_rdata_38 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[39] to a_sram_rdata_39 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[40] to a_sram_rdata_40 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[41] to a_sram_rdata_41 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[42] to a_sram_rdata_42 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[43] to a_sram_rdata_43 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[44] to a_sram_rdata_44 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[45] to a_sram_rdata_45 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[46] to a_sram_rdata_46 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[47] to a_sram_rdata_47 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[48] to a_sram_rdata_48 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[49] to a_sram_rdata_49 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[50] to a_sram_rdata_50 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[51] to a_sram_rdata_51 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[52] to a_sram_rdata_52 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[53] to a_sram_rdata_53 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[54] to a_sram_rdata_54 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[55] to a_sram_rdata_55 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[56] to a_sram_rdata_56 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[57] to a_sram_rdata_57 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[58] to a_sram_rdata_58 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[59] to a_sram_rdata_59 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[60] to a_sram_rdata_60 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[61] to a_sram_rdata_61 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[62] to a_sram_rdata_62 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name a_sram_rdata[63] to a_sram_rdata_63 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[0] to b_sram_rdata_0 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[1] to b_sram_rdata_1 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[2] to b_sram_rdata_2 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[3] to b_sram_rdata_3 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[4] to b_sram_rdata_4 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[5] to b_sram_rdata_5 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[6] to b_sram_rdata_6 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[7] to b_sram_rdata_7 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[8] to b_sram_rdata_8 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[9] to b_sram_rdata_9 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[10] to b_sram_rdata_10 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[11] to b_sram_rdata_11 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[12] to b_sram_rdata_12 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[13] to b_sram_rdata_13 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[14] to b_sram_rdata_14 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[15] to b_sram_rdata_15 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[16] to b_sram_rdata_16 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[17] to b_sram_rdata_17 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[18] to b_sram_rdata_18 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[19] to b_sram_rdata_19 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[20] to b_sram_rdata_20 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[21] to b_sram_rdata_21 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[22] to b_sram_rdata_22 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[23] to b_sram_rdata_23 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[24] to b_sram_rdata_24 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[25] to b_sram_rdata_25 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[26] to b_sram_rdata_26 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[27] to b_sram_rdata_27 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[28] to b_sram_rdata_28 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[29] to b_sram_rdata_29 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[30] to b_sram_rdata_30 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[31] to b_sram_rdata_31 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[32] to b_sram_rdata_32 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[33] to b_sram_rdata_33 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[34] to b_sram_rdata_34 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[35] to b_sram_rdata_35 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[36] to b_sram_rdata_36 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[37] to b_sram_rdata_37 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[38] to b_sram_rdata_38 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[39] to b_sram_rdata_39 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[40] to b_sram_rdata_40 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[41] to b_sram_rdata_41 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[42] to b_sram_rdata_42 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[43] to b_sram_rdata_43 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[44] to b_sram_rdata_44 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[45] to b_sram_rdata_45 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[46] to b_sram_rdata_46 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[47] to b_sram_rdata_47 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[48] to b_sram_rdata_48 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[49] to b_sram_rdata_49 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[50] to b_sram_rdata_50 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[51] to b_sram_rdata_51 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[52] to b_sram_rdata_52 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[53] to b_sram_rdata_53 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[54] to b_sram_rdata_54 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[55] to b_sram_rdata_55 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[56] to b_sram_rdata_56 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[57] to b_sram_rdata_57 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[58] to b_sram_rdata_58 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[59] to b_sram_rdata_59 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[60] to b_sram_rdata_60 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[61] to b_sram_rdata_61 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[62] to b_sram_rdata_62 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+Warning: Changed wire name b_sram_rdata[63] to b_sram_rdata_63 in module accelerator_logic_top.  Please use the change_names command to make the correct changes before invoking the verilog writer. (VO-2)
+1
+write_sdf -version 2.1 "${MAIN_MODULE}_syn.sdf"
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/almalinux/Verilog/main/syn/accelerator_logic_top_syn.sdf'. (WT-3)
+1
+1
+dc_shell> 
+Memory usage for this session 185 Mbytes.
+Memory usage for this session including child processes 185 Mbytes.
+CPU usage for this session 30 seconds ( 0.01 hours ).
+Elapsed time for this session 44 seconds ( 0.01 hours ).
+
+Thank you...

@@ -1,0 +1,549 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version R-2020.09-SP4 for linux64 - Mar 02, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Logic-only synthesis target for PPA.
+# Excludes SRAM macro instances, top controller, input memory, result memory, and data memory.
+set MAIN_MODULE "accelerator_logic_top"
+accelerator_logic_top
+set CLK_cycle 1000
+1000
+set PDK_DB_CANDIDATES [list     "../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db"     "../pdk/NanGate_15nm_OCL_slow_conditional_ccs.db" ]
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db ../pdk/NanGate_15nm_OCL_slow_conditional_ccs.db
+set PDK_DB ""
+foreach candidate $PDK_DB_CANDIDATES {
+    if {[file exists $candidate]} {
+        set PDK_DB $candidate
+        break
+    }
+}
+if {$PDK_DB eq ""} {
+    puts "ERROR: Cannot find NanGate db. Checked: $PDK_DB_CANDIDATES"
+    exit 2
+}
+set link_library $PDK_DB
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+set target_library $PDK_DB
+../pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+read_file -format sverilog [list     "../rtl/accelerator_sram_ext.v"     "../rtl/accelerator_logic_top.v" ]
+Loading db file '/home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/eda/Synopsys/syn/R-2020.09-SP4/libraries/syn/gtech.db'
+Loading db file '/opt/eda/Synopsys/syn/R-2020.09-SP4/libraries/syn/standard.sldb'
+  Loading link library 'NanGate_15nm_OCL'
+  Loading link library 'gtech'
+Loading sverilog files: '/home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v' '/home/almalinux/Verilog/main/rtl/accelerator_logic_top.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v
+Compiling source file /home/almalinux/Verilog/main/rtl/accelerator_logic_top.v
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:22: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:24: unsigned to signed assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine pe_mac line 20 in file
+		'/home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     acc_out_reg     | Flip-flop |  25   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:54: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_sram_ext.v:58: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_logic_top.v:29: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_logic_top.v:34: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/almalinux/Verilog/main/rtl/accelerator_logic_top.v:36: signed to unsigned part selection occurs. (VER-318)
+Presto compilation completed successfully.
+Current design is now '/home/almalinux/Verilog/main/rtl/pe_mac.db:pe_mac'
+Loaded 3 designs.
+Current design is 'pe_mac'.
+pe_mac accelerator_sram_ext accelerator_logic_top
+current_design $MAIN_MODULE
+Current design is 'accelerator_logic_top'.
+{accelerator_logic_top}
+link > "log/link.rpt"
+check_design > "log/check_design.rpt"
+uniquify
+Information: Uniquified 32 instances of design 'pe_mac'. (OPT-1056)
+1
+catch {set_wire_load_model -name ZeroWireload}
+Error: Wire load 'ZeroWireload' not found. (UID-40)
+0
+set_max_area 0
+1
+set_fix_multiple_port_nets -outputs -feedthroughs -buffer_constants
+1
+set_load 0.1 [all_outputs]
+1
+set_max_transition 500 [current_design_name]
+1
+set_max_fanout 16.0 [current_design_name]
+1
+create_clock -name "sysclk" -period $CLK_cycle [get_ports clk]
+1
+set_clock_uncertainty 100 "sysclk"
+1
+set_ideal_network [get_ports clk]
+1
+catch {set_clock_gating_style -positive_edge_logic integrated -negative_edge_logic integrated -control_point before}
+Error: The library cell required for use as an integrated clock-gating cell does not exist in the libraries specified.  The required attribute is latch_negedge_precontrol.  (PWR-191)
+Warning: The clock-gating style was not changed. (PWR-132)
+Information: Performing clock-gating with positive edge logic: 'integrated' and negative edge logic: 'or'. (PWR-1047)
+
+Current clock gating style....
+Sequential cell: latch
+Minimum bank bitwidth: 3
+Minimum bank bitwidth for enhanced clock gating: 6
+Maximum fanout: unlimited
+Setup time for clock gate: -
+Hold time for clock gate: -
+Clock gating circuitry (positive edge): integrated
+Clock gating circuitry (negative edge): or
+ Note: inverter between clock gating circuitry 
+       and (negative edge) register clock pin.
+Control point insertion: before
+Control signal for control point: scan_enable
+Observation point insertion: false
+Observation logic depth: 5
+0
+compile -gate_clock -map_effort high -area_effort high
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | R-2020.09-DWBB_202009.4 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 32 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'SNPS_CLOCK_GATE_HIGH_pe_mac_0_0'
+  Mapping integrated clock gating circuitry
+  Processing 'pe_mac_0'
+  Processing 'accelerator_sram_ext'
+  Processing 'accelerator_logic_top'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width25' (rpl)
+  Processing 'DW01_add_width25'
+  Building model 'DW01_add_width25' (cla)
+  Processing 'DW01_add_width25'
+  Allocating blocks in 'DW02_mult_A_width8_B_width8'
+  Building model 'DW01_MUX'
+  Processing 'DW01_MUX'
+  Building model 'DW01_mmux_width2'
+  Processing 'DW01_mmux_width2'
+  Building model 'DW01_mmux_width3'
+  Processing 'DW01_mmux_width3'
+  Building model 'DW01_mmux_width4'
+  Processing 'DW01_mmux_width4'
+  Building model 'DW01_mmux_width5'
+  Processing 'DW01_mmux_width5'
+  Building model 'DW01_add_width14' (cla)
+  Processing 'DW01_add_width14'
+  Building model 'DW02_mult_A_width8_B_width8' (csa)
+  Processing 'DW02_mult_A_width8_B_width8'
+  Processing 'pe_mac_30_DW01_add_0'
+  Processing 'pe_mac_30_DW02_mult_0'
+  Processing 'pe_mac_30_DW01_add_1'
+  Processing 'pe_mac_29_DW01_add_0_DW01_add_2'
+  Processing 'pe_mac_29_DW02_mult_0_DW02_mult_1'
+  Processing 'pe_mac_29_DW01_add_1_DW01_add_3'
+  Processing 'pe_mac_28_DW01_add_0_DW01_add_4'
+  Processing 'pe_mac_28_DW02_mult_0_DW02_mult_2'
+  Processing 'pe_mac_28_DW01_add_1_DW01_add_5'
+  Processing 'pe_mac_27_DW01_add_0_DW01_add_6'
+  Processing 'pe_mac_27_DW02_mult_0_DW02_mult_3'
+  Processing 'pe_mac_27_DW01_add_1_DW01_add_7'
+  Processing 'pe_mac_26_DW01_add_0_DW01_add_8'
+  Processing 'pe_mac_26_DW02_mult_0_DW02_mult_4'
+  Processing 'pe_mac_26_DW01_add_1_DW01_add_9'
+  Processing 'pe_mac_25_DW01_add_0_DW01_add_10'
+  Processing 'pe_mac_25_DW02_mult_0_DW02_mult_5'
+  Processing 'pe_mac_25_DW01_add_1_DW01_add_11'
+  Processing 'pe_mac_24_DW01_add_0_DW01_add_12'
+  Processing 'pe_mac_24_DW02_mult_0_DW02_mult_6'
+  Processing 'pe_mac_24_DW01_add_1_DW01_add_13'
+  Processing 'pe_mac_23_DW01_add_0_DW01_add_14'
+  Processing 'pe_mac_23_DW02_mult_0_DW02_mult_7'
+  Processing 'pe_mac_23_DW01_add_1_DW01_add_15'
+  Processing 'pe_mac_22_DW01_add_0_DW01_add_16'
+  Processing 'pe_mac_22_DW02_mult_0_DW02_mult_8'
+  Processing 'pe_mac_22_DW01_add_1_DW01_add_17'
+  Processing 'pe_mac_21_DW01_add_0_DW01_add_18'
+  Processing 'pe_mac_21_DW02_mult_0_DW02_mult_9'
+  Processing 'pe_mac_21_DW01_add_1_DW01_add_19'
+  Processing 'pe_mac_20_DW01_add_0_DW01_add_20'
+  Processing 'pe_mac_20_DW02_mult_0_DW02_mult_10'
+  Processing 'pe_mac_20_DW01_add_1_DW01_add_21'
+  Processing 'pe_mac_19_DW01_add_0_DW01_add_22'
+  Processing 'pe_mac_19_DW02_mult_0_DW02_mult_11'
+  Processing 'pe_mac_19_DW01_add_1_DW01_add_23'
+  Processing 'pe_mac_18_DW01_add_0_DW01_add_24'
+  Processing 'pe_mac_18_DW02_mult_0_DW02_mult_12'
+  Processing 'pe_mac_18_DW01_add_1_DW01_add_25'
+  Processing 'pe_mac_17_DW01_add_0_DW01_add_26'
+  Processing 'pe_mac_17_DW02_mult_0_DW02_mult_13'
+  Processing 'pe_mac_17_DW01_add_1_DW01_add_27'
+  Processing 'pe_mac_16_DW01_add_0_DW01_add_28'
+  Processing 'pe_mac_16_DW02_mult_0_DW02_mult_14'
+  Processing 'pe_mac_16_DW01_add_1_DW01_add_29'
+  Processing 'pe_mac_15_DW01_add_0_DW01_add_30'
+  Processing 'pe_mac_15_DW02_mult_0_DW02_mult_15'
+  Processing 'pe_mac_15_DW01_add_1_DW01_add_31'
+  Processing 'pe_mac_14_DW01_add_0_DW01_add_32'
+  Processing 'pe_mac_14_DW02_mult_0_DW02_mult_16'
+  Processing 'pe_mac_14_DW01_add_1_DW01_add_33'
+  Processing 'pe_mac_13_DW01_add_0_DW01_add_34'
+  Processing 'pe_mac_13_DW02_mult_0_DW02_mult_17'
+  Processing 'pe_mac_13_DW01_add_1_DW01_add_35'
+  Processing 'pe_mac_12_DW01_add_0_DW01_add_36'
+  Processing 'pe_mac_12_DW02_mult_0_DW02_mult_18'
+  Processing 'pe_mac_12_DW01_add_1_DW01_add_37'
+  Processing 'pe_mac_11_DW01_add_0_DW01_add_38'
+  Processing 'pe_mac_11_DW02_mult_0_DW02_mult_19'
+  Processing 'pe_mac_11_DW01_add_1_DW01_add_39'
+  Processing 'pe_mac_10_DW01_add_0_DW01_add_40'
+  Processing 'pe_mac_10_DW02_mult_0_DW02_mult_20'
+  Processing 'pe_mac_10_DW01_add_1_DW01_add_41'
+  Processing 'pe_mac_9_DW01_add_0_DW01_add_42'
+  Processing 'pe_mac_9_DW02_mult_0_DW02_mult_21'
+  Processing 'pe_mac_9_DW01_add_1_DW01_add_43'
+  Processing 'pe_mac_8_DW01_add_0_DW01_add_44'
+  Processing 'pe_mac_8_DW02_mult_0_DW02_mult_22'
+  Processing 'pe_mac_8_DW01_add_1_DW01_add_45'
+  Processing 'pe_mac_7_DW01_add_0_DW01_add_46'
+  Processing 'pe_mac_7_DW02_mult_0_DW02_mult_23'
+  Processing 'pe_mac_7_DW01_add_1_DW01_add_47'
+  Processing 'pe_mac_6_DW01_add_0_DW01_add_48'
+  Processing 'pe_mac_6_DW02_mult_0_DW02_mult_24'
+  Processing 'pe_mac_6_DW01_add_1_DW01_add_49'
+  Processing 'pe_mac_5_DW01_add_0_DW01_add_50'
+  Processing 'pe_mac_5_DW02_mult_0_DW02_mult_25'
+  Processing 'pe_mac_5_DW01_add_1_DW01_add_51'
+  Processing 'pe_mac_4_DW01_add_0_DW01_add_52'
+  Processing 'pe_mac_4_DW02_mult_0_DW02_mult_26'
+  Processing 'pe_mac_4_DW01_add_1_DW01_add_53'
+  Processing 'pe_mac_3_DW01_add_0_DW01_add_54'
+  Processing 'pe_mac_3_DW02_mult_0_DW02_mult_27'
+  Processing 'pe_mac_3_DW01_add_1_DW01_add_55'
+  Processing 'pe_mac_2_DW01_add_0_DW01_add_56'
+  Processing 'pe_mac_2_DW02_mult_0_DW02_mult_28'
+  Processing 'pe_mac_2_DW01_add_1_DW01_add_57'
+  Processing 'pe_mac_1_DW01_add_0_DW01_add_58'
+  Processing 'pe_mac_1_DW02_mult_0_DW02_mult_29'
+  Processing 'pe_mac_1_DW01_add_1_DW01_add_59'
+  Processing 'pe_mac_0_DW01_add_0_DW01_add_60'
+  Processing 'pe_mac_0_DW02_mult_0_DW02_mult_30'
+  Processing 'pe_mac_0_DW01_add_1_DW01_add_61'
+  Processing 'pe_mac_31_DW01_add_0_DW01_add_62'
+  Processing 'pe_mac_31_DW02_mult_0_DW02_mult_31'
+  Processing 'pe_mac_31_DW01_add_1_DW01_add_63'
+Information: Skipping clock gating on design accelerator_logic_top, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design accelerator_sram_ext, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_31, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_1, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_6, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_7, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_8, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_9, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_10, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_11, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_12, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_13, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_14, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_15, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_16, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_17, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_18, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_19, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_20, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_21, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_22, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_23, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_24, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_25, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_26, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_27, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_28, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_29, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_pe_mac_0_30, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_30_DW01_add_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_30_DW02_mult_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_30_DW01_add_1, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_29_DW01_add_0_DW01_add_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_29_DW02_mult_0_DW02_mult_1, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_29_DW01_add_1_DW01_add_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_28_DW01_add_0_DW01_add_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_28_DW02_mult_0_DW02_mult_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_28_DW01_add_1_DW01_add_5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_27_DW01_add_0_DW01_add_6, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_27_DW02_mult_0_DW02_mult_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_27_DW01_add_1_DW01_add_7, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_26_DW01_add_0_DW01_add_8, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_26_DW02_mult_0_DW02_mult_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_26_DW01_add_1_DW01_add_9, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_25_DW01_add_0_DW01_add_10, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_25_DW02_mult_0_DW02_mult_5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_25_DW01_add_1_DW01_add_11, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_24_DW01_add_0_DW01_add_12, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_24_DW02_mult_0_DW02_mult_6, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_24_DW01_add_1_DW01_add_13, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_23_DW01_add_0_DW01_add_14, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_23_DW02_mult_0_DW02_mult_7, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_23_DW01_add_1_DW01_add_15, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_22_DW01_add_0_DW01_add_16, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_22_DW02_mult_0_DW02_mult_8, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_22_DW01_add_1_DW01_add_17, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_21_DW01_add_0_DW01_add_18, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_21_DW02_mult_0_DW02_mult_9, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_21_DW01_add_1_DW01_add_19, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_20_DW01_add_0_DW01_add_20, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_20_DW02_mult_0_DW02_mult_10, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_20_DW01_add_1_DW01_add_21, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_19_DW01_add_0_DW01_add_22, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_19_DW02_mult_0_DW02_mult_11, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_19_DW01_add_1_DW01_add_23, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_18_DW01_add_0_DW01_add_24, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_18_DW02_mult_0_DW02_mult_12, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_18_DW01_add_1_DW01_add_25, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_17_DW01_add_0_DW01_add_26, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_17_DW02_mult_0_DW02_mult_13, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_17_DW01_add_1_DW01_add_27, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_16_DW01_add_0_DW01_add_28, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_16_DW02_mult_0_DW02_mult_14, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_16_DW01_add_1_DW01_add_29, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_15_DW01_add_0_DW01_add_30, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_15_DW02_mult_0_DW02_mult_15, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_15_DW01_add_1_DW01_add_31, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_14_DW01_add_0_DW01_add_32, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_14_DW02_mult_0_DW02_mult_16, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_14_DW01_add_1_DW01_add_33, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_13_DW01_add_0_DW01_add_34, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_13_DW02_mult_0_DW02_mult_17, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_13_DW01_add_1_DW01_add_35, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_12_DW01_add_0_DW01_add_36, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_12_DW02_mult_0_DW02_mult_18, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_12_DW01_add_1_DW01_add_37, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_11_DW01_add_0_DW01_add_38, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_11_DW02_mult_0_DW02_mult_19, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_11_DW01_add_1_DW01_add_39, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_10_DW01_add_0_DW01_add_40, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_10_DW02_mult_0_DW02_mult_20, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_10_DW01_add_1_DW01_add_41, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_9_DW01_add_0_DW01_add_42, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_9_DW02_mult_0_DW02_mult_21, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_9_DW01_add_1_DW01_add_43, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_8_DW01_add_0_DW01_add_44, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_8_DW02_mult_0_DW02_mult_22, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_8_DW01_add_1_DW01_add_45, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_7_DW01_add_0_DW01_add_46, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_7_DW02_mult_0_DW02_mult_23, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_7_DW01_add_1_DW01_add_47, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_6_DW01_add_0_DW01_add_48, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_6_DW02_mult_0_DW02_mult_24, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_6_DW01_add_1_DW01_add_49, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_5_DW01_add_0_DW01_add_50, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_5_DW02_mult_0_DW02_mult_25, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_5_DW01_add_1_DW01_add_51, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_4_DW01_add_0_DW01_add_52, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_4_DW02_mult_0_DW02_mult_26, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_4_DW01_add_1_DW01_add_53, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_3_DW01_add_0_DW01_add_54, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_3_DW02_mult_0_DW02_mult_27, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_3_DW01_add_1_DW01_add_55, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_2_DW01_add_0_DW01_add_56, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_2_DW02_mult_0_DW02_mult_28, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_2_DW01_add_1_DW01_add_57, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_1_DW01_add_0_DW01_add_58, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_1_DW02_mult_0_DW02_mult_29, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_1_DW01_add_1_DW01_add_59, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_0_DW01_add_0_DW01_add_60, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_0_DW02_mult_0_DW02_mult_30, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_0_DW01_add_1_DW01_add_61, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_31_DW01_add_0_DW01_add_62, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_31_DW02_mult_0_DW02_mult_31, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design pe_mac_31_DW01_add_1_DW01_add_63, since there are no registers. (PWR-806)
+Information: Performing clock-gating on design pe_mac_31. (PWR-730)
+Information: Performing clock-gating on design pe_mac_0. (PWR-730)
+Information: Performing clock-gating on design pe_mac_1. (PWR-730)
+Information: Performing clock-gating on design pe_mac_2. (PWR-730)
+Information: Performing clock-gating on design pe_mac_3. (PWR-730)
+Information: Performing clock-gating on design pe_mac_4. (PWR-730)
+Information: Performing clock-gating on design pe_mac_5. (PWR-730)
+Information: Performing clock-gating on design pe_mac_6. (PWR-730)
+Information: Performing clock-gating on design pe_mac_7. (PWR-730)
+Information: Performing clock-gating on design pe_mac_8. (PWR-730)
+Information: Performing clock-gating on design pe_mac_9. (PWR-730)
+Information: Performing clock-gating on design pe_mac_10. (PWR-730)
+Information: Performing clock-gating on design pe_mac_11. (PWR-730)
+Information: Performing clock-gating on design pe_mac_12. (PWR-730)
+Information: Performing clock-gating on design pe_mac_13. (PWR-730)
+Information: Performing clock-gating on design pe_mac_14. (PWR-730)
+Information: Performing clock-gating on design pe_mac_15. (PWR-730)
+Information: Performing clock-gating on design pe_mac_16. (PWR-730)
+Information: Performing clock-gating on design pe_mac_17. (PWR-730)
+Information: Performing clock-gating on design pe_mac_18. (PWR-730)
+Information: Performing clock-gating on design pe_mac_19. (PWR-730)
+Information: Performing clock-gating on design pe_mac_20. (PWR-730)
+Information: Performing clock-gating on design pe_mac_21. (PWR-730)
+Information: Performing clock-gating on design pe_mac_22. (PWR-730)
+Information: Performing clock-gating on design pe_mac_23. (PWR-730)
+Information: Performing clock-gating on design pe_mac_24. (PWR-730)
+Information: Performing clock-gating on design pe_mac_25. (PWR-730)
+Information: Performing clock-gating on design pe_mac_26. (PWR-730)
+Information: Performing clock-gating on design pe_mac_27. (PWR-730)
+Information: Performing clock-gating on design pe_mac_28. (PWR-730)
+Information: Performing clock-gating on design pe_mac_29. (PWR-730)
+Information: Performing clock-gating on design pe_mac_30. (PWR-730)
+
+  Beginning Mapping Optimizations  (High effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07    5699.1      0.00       0.0    1870.6                          
+    0:00:07    5699.1      0.00       0.0    1870.6                          
+    0:00:09    6209.8      0.00       0.0       0.0                          
+    0:00:09    6209.8      0.00       0.0       0.0                          
+    0:00:09    6209.8      0.00       0.0       0.0                          
+    0:00:09    6209.8      0.00       0.0       0.0                          
+    0:00:10    6209.8      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5441.4      0.00       0.0       0.0                          
+    0:00:11    5432.6      0.00       0.0       0.0                          
+    0:00:11    5431.6      0.00       0.0       0.0                          
+    0:00:11    5430.6      0.00       0.0       0.0                          
+    0:00:11    5429.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:11    5428.6      0.00       0.0       0.0                          
+    0:00:12    5411.7      0.00       0.0       0.0                          
+    0:00:12    5405.5      0.00       0.0       0.0                          
+    0:00:12    5398.7      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:12    5398.2      0.00       0.0       0.0                          
+    0:00:14    5390.5      0.00       0.0       0.0                          
+    0:00:15    5384.2      0.00       0.0       0.0                          
+    0:00:15    5377.9      0.00       0.0       0.0                          
+    0:00:15    5371.6      0.00       0.0       0.0                          
+    0:00:15    5365.3      0.00       0.0       0.0                          
+    0:00:16    5359.0      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+    0:00:16    5352.8      0.00       0.0       0.0                          
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+write_file -format ddc -hier -o "log/WorkSpace.ddc"
+Writing ddc file 'log/WorkSpace.ddc'.
+1
+report_power > "log/power.rpt"
+report_area > "log/area.rpt"
+report_timing -max_paths 10 > "log/timing.rpt"
+report_constraint -all_violators > "log/constraints.rpt"
+write -hier -f verilog -output "${MAIN_MODULE}.vg"
+Writing verilog file '/home/almalinux/Verilog/main/syn/accelerator_logic_top.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdf -version 2.1 "${MAIN_MODULE}_syn.sdf"
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/almalinux/Verilog/main/syn/accelerator_logic_top_syn.sdf'. (WT-3)
+1
+exit
+
+Memory usage for this session 185 Mbytes.
+Memory usage for this session including child processes 185 Mbytes.
+CPU usage for this session 20 seconds ( 0.01 hours ).
+Elapsed time for this session 24 seconds ( 0.01 hours ).
+
+Thank you...

@@ -1,0 +1,11 @@
+
+  Linking design 'accelerator_logic_top'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  NanGate_15nm_OCL (library)  /home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db
+
+Information: Building the design 'pe_mac' instantiated from design 'accelerator_sram_ext' with
+	the parameters "ACC_BITS=25". (HDL-193)
+Warning: Cannot find the design 'pe_mac' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'pe_mac' in 'accelerator_sram_ext'. (LINK-5)
+0

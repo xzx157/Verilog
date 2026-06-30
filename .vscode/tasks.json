@@ -1,0 +1,254 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Lab8 Remote: sync",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_flow_fast.ps1",
+				"-Action",
+				"sync",
+				"-RemoteHost",
+				"${input:sshHost}",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Remote: build",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_flow_fast.ps1",
+				"-Action",
+				"build",
+				"-RemoteHost",
+				"${input:sshHost}",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Remote: run",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_flow_fast.ps1",
+				"-Action",
+				"run",
+				"-RemoteHost",
+				"${input:sshHost}",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Remote: check",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_flow_fast.ps1",
+				"-Action",
+				"check",
+				"-RemoteHost",
+				"${input:sshHost}",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Remote: all",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_flow_fast.ps1",
+				"-Action",
+				"all",
+				"-RemoteHost",
+				"${input:sshHost}",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: sync",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"sync",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: pre-sim",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"pre",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: synth",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"syn",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: post-sim",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"post",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: fetch full lab8_syn",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"fetch",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Lab8 Syn Remote: all",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/tools/remote_lab8_syn.ps1",
+				"-Action",
+				"all",
+				"-RemoteHost",
+				"digital_system_xzx",
+				"-RemoteRoot",
+				"${input:remoteRoot}"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Compile design report",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"Set-Location 'd:\\repository\\Verilog\\submit'; xelatex -interaction=nonstopmode -halt-on-error design_report.tex; if ($LASTEXITCODE -eq 0) { xelatex -interaction=nonstopmode -halt-on-error design_report.tex }; if ($LASTEXITCODE -eq 0) { Select-String -Path .\\design_report.log -Pattern 'Overfull|LaTeX Error|Fatal error|Output written' | ForEach-Object { $_.Line }; Get-Item .\\design_report.pdf | Select-Object Name,Length,LastWriteTime }"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Compile design report simple",
+			"type": "shell",
+			"command": "Set-Location 'd:\\repository\\Verilog\\submit'; xelatex -interaction=nonstopmode -halt-on-error design_report.tex; if ($LASTEXITCODE -eq 0) { xelatex -interaction=nonstopmode -halt-on-error design_report.tex }",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	],
+	"inputs": [
+		{
+			"id": "sshHost",
+			"type": "promptString",
+			"description": "SSH target in format user@host"
+		},
+		{
+			"id": "remoteRoot",
+			"type": "promptString",
+			"description": "Remote workspace root path",
+			"default": "~/Verilog"
+		}
+	]
+}

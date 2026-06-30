@@ -1,0 +1,35 @@
+import numpy as np
+
+# params
+np.random.seed(1023)
+sparsity = 0.35
+
+# convert a signed INT8 number to hexadecimal string
+def number_to_hex(number):
+    number = int(number)
+    if number < 0:
+        # convert to two's complement
+        number = 256 + number
+    return hex(number)[2:].zfill(2)
+
+# Main Entry
+def main():
+    # create a signed INT8 numpy array with sparsity of 35% and shape of (1024, 512)
+    shape = (1024, 512)
+    array = np.random.randint(0, 256, size=shape).astype(np.int8)
+    # set values to 0 with configured sparsity probability
+    array[np.random.rand(*shape) < sparsity] = 0
+
+    f = open("input_mem.csv", "w")
+    for i in range(1024):
+        for j in range(64):# 512/8
+            for k in range(8):
+                f.write(f"{number_to_hex(array[i][8*j+k])}")
+            f.write("\n")
+            
+    f.close()
+
+    np.save('in.npy',array) 
+    
+if __name__=="__main__": 
+    main()

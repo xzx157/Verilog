@@ -1,0 +1,767 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : accelerator_logic_top
+Version: R-2020.09-SP4
+Date   : Tue Jun 30 04:07:37 2026
+****************************************
+
+Operating Conditions: slow   Library: NanGate_15nm_OCL
+Wire Load Model Mode: top
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         11.70      11.70 r
+  U8210/ZN (NAND2_X1)                                     4.87      16.57 f
+  U8211/ZN (OAI21_X1)                                     4.15      20.72 r
+  intadd_193/U4/S (FA_X1)                                17.04      37.76 f
+  U8204/Z (AND2_X1)                                       4.06      41.82 f
+  U8205/ZN (OAI22_X1)                                     3.77      45.59 r
+  U8206/ZN (INV_X1)                                       2.97      48.56 f
+  intadd_193/U3/CO (FA_X1)                                7.71      56.27 f
+  intadd_193/U2/CO (FA_X1)                                7.03      63.31 f
+  U8203/ZN (INV_X1)                                       2.41      65.72 r
+  intadd_192/U2/CO (FA_X1)                               11.60      77.32 r
+  U8199/Z (OR2_X1)                                        4.51      81.83 r
+  U8201/ZN (AOI22_X1)                                     4.24      86.08 f
+  intadd_191/U2/CO (FA_X1)                                8.12      94.20 f
+  U8198/ZN (INV_X1)                                       2.41      96.61 r
+  intadd_19/U3/CO (FA_X1)                                 9.20     105.80 r
+  intadd_19/U2/CO (FA_X1)                                 8.43     114.23 r
+  U3619/ZN (INV_X1)                                       3.73     117.96 f
+  U8195/Z (OR2_X1)                                        4.67     122.64 f
+  U8196/ZN (AOI22_X1)                                     3.39     126.03 r
+  U8197/ZN (INV_X1)                                       2.93     128.96 f
+  intadd_8/U4/CO (FA_X1)                                  7.70     136.66 f
+  intadd_8/U3/CO (FA_X1)                                  7.29     143.95 f
+  intadd_8/U2/CO (FA_X1)                                  7.03     150.98 f
+  U4179/ZN (INV_X1)                                       2.41     153.40 r
+  U8382/CO (FA_X1)                                       10.71     164.10 r
+  U4185/ZN (NOR2_X1)                                      3.31     167.41 f
+  U4477/ZN (INV_X1)                                       2.10     169.51 r
+  U4478/ZN (AOI22_X1)                                     3.37     172.89 f
+  U4673/CO (FA_X1)                                        7.97     180.86 f
+  U4871/CO (FA_X1)                                        8.82     189.68 f
+  U4873/Z (OR2_X1)                                        5.63     195.31 f
+  U5120/ZN (AOI22_X1)                                     4.32     199.63 r
+  U5121/ZN (INV_X1)                                       3.22     202.85 f
+  U5123/ZN (NOR2_X1)                                      4.06     206.91 r
+  U6820/ZN (NOR2_X1)                                      2.79     209.71 f
+  U6821/ZN (NOR2_X1)                                      3.25     212.96 r
+  U8384/CO (FA_X1)                                       10.24     223.20 r
+  U6823/ZN (NAND2_X1)                                     4.41     227.60 f
+  U7870/ZN (NAND2_X1)                                     3.50     231.10 r
+  U7871/ZN (OAI21_X1)                                     5.68     236.79 f
+  U8192/ZN (OAI22_X1)                                     6.14     242.93 r
+  U8193/ZN (OAI21_X1)                                     4.52     247.45 f
+  U8194/ZN (AOI21_X1)                                     3.78     251.22 r
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     251.22 r
+  data arrival time                                                251.22
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.78    9892.22
+  data required time                                              9892.22
+  --------------------------------------------------------------------------
+  data required time                                              9892.22
+  data arrival time                                               -251.22
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9641.00
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         11.70      11.70 r
+  U2164/ZN (NAND2_X1)                                     4.87      16.57 f
+  U8134/ZN (OAI21_X1)                                     4.21      20.78 r
+  U8137/S (FA_X1)                                        14.75      35.53 f
+  U8136/ZN (INV_X1)                                       2.60      38.13 r
+  intadd_124/U3/CO (FA_X1)                                8.65      46.78 r
+  intadd_124/U2/CO (FA_X1)                               10.30      57.08 r
+  U2171/ZN (NAND2_X1)                                     4.17      61.25 f
+  U8128/ZN (AOI21_X1)                                     4.72      65.98 r
+  intadd_123/U2/CO (FA_X1)                                9.65      75.63 r
+  U8126/ZN (INV_X1)                                       2.46      78.09 f
+  intadd_122/U2/CO (FA_X1)                                9.02      87.11 f
+  U2771/ZN (INV_X1)                                       3.06      90.16 r
+  U2940/ZN (NOR2_X1)                                      2.30      92.47 f
+  U2941/ZN (OAI22_X1)                                     6.59      99.06 r
+  U8124/Z (AND2_X1)                                       5.61     104.67 r
+  U8125/ZN (OAI22_X1)                                     3.95     108.62 f
+  intadd_43/U2/CO (FA_X1)                                10.04     118.65 f
+  U3615/ZN (INV_X1)                                       3.07     121.73 r
+  U3913/ZN (NOR2_X1)                                      2.30     124.03 f
+  U3914/ZN (OAI22_X1)                                     6.51     130.54 r
+  U8115/Z (OR2_X1)                                        4.61     135.14 r
+  U8116/ZN (AOI22_X1)                                     3.79     138.94 f
+  intadd_42/U3/CO (FA_X1)                                 8.95     147.89 f
+  intadd_42/U2/CO (FA_X1)                                 7.05     154.94 f
+  U4239/ZN (INV_X1)                                       2.12     157.06 r
+  U8694/CO (FA_X1)                                        9.05     166.11 r
+  U4242/ZN (NAND2_X1)                                     4.08     170.19 f
+  U4428/ZN (AOI21_X1)                                     4.93     175.12 r
+  U4431/ZN (NAND2_X1)                                     4.61     179.73 f
+  U4640/ZN (AOI21_X1)                                     5.05     184.78 r
+  U4643/ZN (NAND2_X1)                                     4.63     189.41 f
+  U4838/ZN (AOI21_X1)                                     5.05     194.46 r
+  U4841/ZN (NAND2_X1)                                     4.63     199.09 f
+  U5057/ZN (AOI21_X1)                                     5.05     204.15 r
+  U5060/ZN (NAND2_X1)                                     4.63     208.78 f
+  U5297/ZN (AOI21_X1)                                     5.05     213.83 r
+  U5300/ZN (NAND2_X1)                                     4.63     218.46 f
+  U6813/ZN (AOI21_X1)                                     5.12     223.58 r
+  U6815/ZN (NAND2_X1)                                     4.71     228.29 f
+  U7703/ZN (NAND2_X1)                                     3.57     231.86 r
+  U7704/ZN (NAND2_X1)                                     4.91     236.78 f
+  U8112/ZN (OAI22_X1)                                     5.91     242.69 r
+  U8113/ZN (OAI21_X1)                                     4.46     247.15 f
+  U8114/ZN (AOI21_X1)                                     3.78     250.93 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     250.93 r
+  data arrival time                                                250.93
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.78    9892.22
+  data required time                                              9892.22
+  --------------------------------------------------------------------------
+  data required time                                              9892.22
+  data arrival time                                               -250.93
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9641.30
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         11.70      11.70 r
+  U2217/ZN (NAND2_X1)                                     4.87      16.57 f
+  U8055/ZN (OAI21_X1)                                     4.14      20.71 r
+  U8058/S (FA_X1)                                        14.74      35.46 f
+  U8057/ZN (INV_X1)                                       2.60      38.05 r
+  intadd_145/U3/CO (FA_X1)                                8.65      46.71 r
+  intadd_145/U2/CO (FA_X1)                               10.30      57.00 r
+  U2223/ZN (NAND2_X1)                                     4.17      61.17 f
+  U8049/ZN (AOI21_X1)                                     4.72      65.90 r
+  intadd_144/U2/CO (FA_X1)                               11.49      77.38 r
+  U2658/ZN (NAND2_X1)                                     4.40      81.78 f
+  U2833/ZN (AOI22_X1)                                     7.27      89.05 r
+  U8044/ZN (NAND2_X1)                                     4.16      93.22 f
+  U8045/ZN (OAI21_X1)                                     3.58      96.79 r
+  intadd_50/U2/CO (FA_X1)                                11.30     108.10 r
+  U3111/ZN (NAND2_X1)                                     4.40     112.50 f
+  U3649/ZN (AOI22_X1)                                     5.58     118.08 r
+  U3651/ZN (NOR2_X1)                                      3.84     121.92 f
+  U3903/ZN (OAI21_X1)                                     6.60     128.51 r
+  U8039/Z (AND2_X1)                                       5.36     133.88 r
+  U8040/ZN (OAI22_X1)                                     4.68     138.55 f
+  intadd_49/U3/CO (FA_X1)                                 8.69     147.25 f
+  intadd_49/U2/CO (FA_X1)                                 7.04     154.29 f
+  U4258/ZN (INV_X1)                                       2.12     156.41 r
+  U8607/CO (FA_X1)                                        9.12     165.53 r
+  U4259/ZN (INV_X1)                                       2.92     168.45 f
+  U4260/ZN (NOR2_X1)                                      3.97     172.42 r
+  U4521/ZN (OAI22_X1)                                     5.57     177.99 f
+  U4524/ZN (NOR2_X1)                                      4.49     182.48 r
+  U4711/ZN (OAI21_X1)                                     5.05     187.53 f
+  U4714/ZN (NOR2_X1)                                      4.40     191.93 r
+  U4931/ZN (OAI21_X1)                                     5.02     196.94 f
+  U4934/ZN (NOR2_X1)                                      4.39     201.33 r
+  U5141/ZN (OAI21_X1)                                     5.02     206.35 f
+  U5144/ZN (NOR2_X1)                                      4.39     210.74 r
+  U5504/ZN (OAI21_X1)                                     5.02     215.76 f
+  U5507/ZN (NOR2_X1)                                      4.39     220.15 r
+  U7273/ZN (OAI21_X1)                                     5.18     225.34 f
+  U7859/CO (FA_X1)                                        7.81     233.15 f
+  U7860/ZN (INV_X1)                                       3.15     236.30 r
+  U8036/ZN (OAI22_X1)                                     4.53     240.83 f
+  U8037/ZN (OAI21_X1)                                     3.46     244.29 r
+  U8038/ZN (AOI21_X1)                                     3.25     247.54 f
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     247.54 f
+  data arrival time                                                247.54
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.27    9892.73
+  data required time                                              9892.73
+  --------------------------------------------------------------------------
+  data required time                                              9892.73
+  data arrival time                                               -247.54
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9645.20
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         10.65      10.65 f
+  U1956/ZN (NAND2_X1)                                     3.37      14.02 r
+  U1962/ZN (OAI21_X1)                                     4.78      18.79 f
+  U1964/S (FA_X1)                                        14.29      33.08 r
+  U1965/ZN (INV_X1)                                       2.62      35.71 f
+  U8482/CO (FA_X1)                                        7.05      42.76 f
+  U1967/ZN (INV_X1)                                       3.64      46.40 r
+  U7984/Z (OR2_X1)                                        4.07      50.46 r
+  U7985/ZN (AOI22_X1)                                     2.88      53.35 f
+  U7986/ZN (INV_X1)                                       3.10      56.45 r
+  intadd_168/U3/CO (FA_X1)                                8.75      65.20 r
+  intadd_168/U2/CO (FA_X1)                               10.30      75.50 r
+  U2596/ZN (NAND2_X1)                                     4.18      79.67 f
+  U7974/ZN (AOI21_X1)                                     4.34      84.02 r
+  intadd_167/U2/CO (FA_X1)                                9.57      93.58 r
+  U7971/ZN (INV_X1)                                       2.46      96.04 f
+  intadd_64/U2/CO (FA_X1)                                 9.82     105.86 f
+  U7966/Z (OR2_X1)                                        4.97     110.83 f
+  U7968/ZN (AOI22_X1)                                     4.58     115.41 r
+  intadd_63/U2/CO (FA_X1)                                11.69     127.10 r
+  U3874/ZN (NOR2_X1)                                      3.28     130.38 f
+  U7961/ZN (OAI21_X1)                                     4.18     134.56 r
+  intadd_62/U3/CO (FA_X1)                                 9.05     143.62 r
+  intadd_62/U2/CO (FA_X1)                                 8.42     152.03 r
+  U4193/ZN (INV_X1)                                       2.16     154.20 f
+  U8489/CO (FA_X1)                                        7.70     161.89 f
+  U4194/ZN (INV_X1)                                       2.84     164.73 r
+  U4195/ZN (NOR2_X1)                                      2.95     167.69 f
+  U4389/ZN (OAI22_X1)                                     4.68     172.37 r
+  U4390/ZN (NAND2_X1)                                     4.56     176.93 f
+  U4604/ZN (OAI21_X1)                                     4.03     180.96 r
+  U4606/ZN (NAND2_X1)                                     4.31     185.27 f
+  U4805/ZN (AOI21_X1)                                     5.18     190.46 r
+  U4807/ZN (NAND2_X1)                                     4.36     194.81 f
+  U4975/ZN (AOI21_X1)                                     4.31     199.12 r
+  U5149/CO (FA_X1)                                        9.15     208.27 r
+  U5672/CO (FA_X1)                                       10.24     218.51 r
+  U5673/ZN (NAND2_X1)                                     4.23     222.74 f
+  U6715/ZN (NAND2_X1)                                     3.62     226.36 r
+  U6716/ZN (OAI21_X1)                                     5.62     231.99 f
+  U7949/ZN (OAI22_X1)                                     6.15     238.14 r
+  U7950/ZN (OAI21_X1)                                     4.52     242.66 f
+  U7951/ZN (AOI21_X1)                                     3.78     246.44 r
+  u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     246.44 r
+  data arrival time                                                246.44
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[20].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.78    9892.22
+  data required time                                              9892.22
+  --------------------------------------------------------------------------
+  data required time                                              9892.22
+  data arrival time                                               -246.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9645.79
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         10.65      10.65 f
+  U2054/ZN (NAND2_X1)                                     3.37      14.02 r
+  U8408/ZN (OAI21_X1)                                     4.78      18.79 f
+  U8410/S (FA_X1)                                        14.87      33.66 r
+  intadd_185/U3/CO (FA_X1)                                9.61      43.27 r
+  intadd_185/U2/CO (FA_X1)                               10.95      54.23 r
+  U7884/Z (AND2_X1)                                       4.88      59.11 r
+  U7885/ZN (OAI22_X1)                                     3.92      63.03 f
+  intadd_184/U2/CO (FA_X1)                                8.16      71.18 f
+  U7883/ZN (INV_X1)                                       2.41      73.60 r
+  intadd_72/U3/CO (FA_X1)                                 9.20      82.79 r
+  intadd_72/U2/CO (FA_X1)                                 9.43      92.23 r
+  U2869/ZN (NAND2_X1)                                     4.01      96.23 f
+  U2991/ZN (AOI21_X1)                                     5.03     101.27 r
+  U2993/ZN (NAND2_X1)                                     4.72     105.99 f
+  U3368/ZN (INV_X1)                                       2.25     108.24 r
+  U3369/ZN (OAI21_X1)                                     3.90     112.15 f
+  U3371/ZN (NOR2_X1)                                      4.42     116.57 r
+  U3723/ZN (OAI21_X1)                                     6.56     123.13 f
+  U7879/Z (AND2_X1)                                       4.96     128.10 f
+  U7880/ZN (OAI22_X1)                                     4.75     132.85 r
+  intadd_71/U3/CO (FA_X1)                                10.31     143.16 r
+  intadd_71/U2/CO (FA_X1)                                 8.43     151.59 r
+  U4200/ZN (INV_X1)                                       2.46     154.05 f
+  U8425/CO (FA_X1)                                        8.28     162.32 f
+  U4204/ZN (INV_X1)                                       2.82     165.14 r
+  U4205/ZN (NAND2_X1)                                     3.76     168.90 f
+  U4437/ZN (AOI22_X1)                                     5.77     174.67 r
+  U4439/ZN (NAND2_X1)                                     4.46     179.13 f
+  U4625/ZN (AOI21_X1)                                     5.18     184.31 r
+  U4627/ZN (NAND2_X1)                                     4.36     188.67 f
+  U4831/ZN (AOI21_X1)                                     5.18     193.85 r
+  U4833/ZN (NAND2_X1)                                     4.36     198.21 f
+  U5043/ZN (AOI21_X1)                                     5.18     203.39 r
+  U5045/ZN (NAND2_X1)                                     4.36     207.75 f
+  U5241/ZN (AOI21_X1)                                     4.31     212.05 r
+  U6561/CO (FA_X1)                                       10.12     222.18 r
+  U6827/CO (FA_X1)                                       10.48     232.66 r
+  U7876/ZN (AOI22_X1)                                     4.62     237.29 f
+  U7877/Z (XOR2_X1)                                       5.72     243.00 f
+  U7878/ZN (NOR2_X1)                                      2.52     245.52 r
+  u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     245.52 r
+  data arrival time                                                245.52
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[24].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.92    9892.08
+  data required time                                              9892.08
+  --------------------------------------------------------------------------
+  data required time                                              9892.08
+  data arrival time                                               -245.52
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9646.56
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[23]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         10.65      10.65 f
+  U8210/ZN (NAND2_X1)                                     3.37      14.02 r
+  U8211/ZN (OAI21_X1)                                     4.78      18.79 f
+  intadd_193/U4/S (FA_X1)                                16.43      35.22 r
+  U8204/Z (AND2_X1)                                       5.35      40.57 r
+  U8205/ZN (OAI22_X1)                                     3.62      44.19 f
+  U8206/ZN (INV_X1)                                       2.96      47.15 r
+  intadd_193/U3/CO (FA_X1)                                9.32      56.46 r
+  intadd_193/U2/CO (FA_X1)                                8.42      64.89 r
+  U8203/ZN (INV_X1)                                       2.46      67.34 f
+  intadd_192/U2/CO (FA_X1)                                9.82      77.16 f
+  U8199/Z (OR2_X1)                                        4.97      82.13 f
+  U8201/ZN (AOI22_X1)                                     4.58      86.71 r
+  intadd_191/U2/CO (FA_X1)                                9.79      96.50 r
+  U8198/ZN (INV_X1)                                       2.46      98.96 f
+  intadd_19/U3/CO (FA_X1)                                 7.58     106.54 f
+  intadd_19/U2/CO (FA_X1)                                 7.03     113.57 f
+  U3619/ZN (INV_X1)                                       3.64     117.21 r
+  U8195/Z (OR2_X1)                                        4.07     121.28 r
+  U8196/ZN (AOI22_X1)                                     2.88     124.16 f
+  U8197/ZN (INV_X1)                                       3.01     127.17 r
+  intadd_8/U4/CO (FA_X1)                                  9.34     136.51 r
+  intadd_8/U3/CO (FA_X1)                                  8.72     145.22 r
+  intadd_8/U2/CO (FA_X1)                                  8.43     153.65 r
+  U4179/ZN (INV_X1)                                       2.46     156.10 f
+  U8382/CO (FA_X1)                                        9.02     165.12 f
+  U4185/ZN (NOR2_X1)                                      4.44     169.56 r
+  U4477/ZN (INV_X1)                                       2.28     171.85 f
+  U4478/ZN (AOI22_X1)                                     4.14     175.98 r
+  U4673/CO (FA_X1)                                        9.28     185.26 r
+  U4871/CO (FA_X1)                                       10.45     195.71 r
+  U4873/Z (OR2_X1)                                        5.15     200.86 r
+  U5120/ZN (AOI22_X1)                                     3.88     204.74 f
+  U5121/ZN (INV_X1)                                       3.25     207.99 r
+  U5123/ZN (NOR2_X1)                                      3.09     211.08 f
+  U6820/ZN (NOR2_X1)                                      2.94     214.02 r
+  U6821/ZN (NOR2_X1)                                      2.73     216.75 f
+  U8384/CO (FA_X1)                                        8.63     225.39 f
+  U6823/ZN (NAND2_X1)                                     3.21     228.59 r
+  U7870/ZN (NAND2_X1)                                     3.86     232.45 f
+  U7871/ZN (OAI21_X1)                                     4.50     236.95 r
+  U7872/ZN (OAI21_X1)                                     4.37     241.32 f
+  U7873/ZN (AOI21_X1)                                     3.78     245.10 r
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[23]/D (DFFRNQ_X1)
+                                                          0.00     245.10 r
+  data arrival time                                                245.10
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[26].u_pe_mac/acc_out_reg[23]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.82    9892.18
+  data required time                                              9892.18
+  --------------------------------------------------------------------------
+  data required time                                              9892.18
+  data arrival time                                               -245.10
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9647.08
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         10.65      10.65 f
+  U2035/ZN (NAND2_X1)                                     3.37      14.02 r
+  U8760/ZN (OAI21_X1)                                     4.78      18.79 f
+  U8762/S (FA_X1)                                        14.86      33.65 r
+  intadd_102/U3/CO (FA_X1)                                9.61      43.27 r
+  intadd_102/U2/CO (FA_X1)                               11.10      54.37 r
+  U7720/Z (OR2_X1)                                        4.58      58.95 r
+  U7721/ZN (AOI22_X1)                                     3.78      62.72 f
+  intadd_101/U2/CO (FA_X1)                                8.35      71.07 f
+  U2507/ZN (INV_X1)                                       3.21      74.28 r
+  U2508/ZN (NAND2_X1)                                     3.94      78.22 f
+  U2838/ZN (INV_X1)                                       2.30      80.52 r
+  U2839/ZN (OAI22_X1)                                     4.89      85.41 f
+  U2841/ZN (NOR2_X1)                                      4.68      90.09 r
+  U2931/ZN (NOR2_X1)                                      2.52      92.62 f
+  U2932/ZN (NOR2_X1)                                      4.05      96.67 r
+  U2935/ZN (NOR2_X1)                                      3.45     100.12 f
+  U3050/ZN (OAI21_X1)                                     6.43     106.55 r
+  U7712/ZN (OAI21_X1)                                     4.72     111.27 f
+  U7714/ZN (NAND2_X1)                                     3.11     114.38 r
+  intadd_33/U2/CO (FA_X1)                                10.96     125.34 r
+  U3844/ZN (NOR2_X1)                                      3.60     128.93 f
+  U7711/ZN (AOI21_X1)                                     4.62     133.55 r
+  intadd_32/U3/CO (FA_X1)                                 9.89     143.44 r
+  intadd_32/U2/CO (FA_X1)                                 8.43     151.87 r
+  U4227/ZN (INV_X1)                                       2.46     154.33 f
+  U8769/CO (FA_X1)                                        8.23     162.56 f
+  U4231/ZN (INV_X1)                                       2.81     165.37 r
+  U4232/ZN (NAND2_X1)                                     3.82     169.18 f
+  U4413/ZN (AOI22_X1)                                     5.78     174.96 r
+  U4414/ZN (NAND2_X1)                                     4.85     179.81 f
+  U4618/ZN (OAI21_X1)                                     4.02     183.83 r
+  U4619/ZN (NAND2_X1)                                     4.38     188.21 f
+  U4812/ZN (OAI21_X1)                                     4.03     192.24 r
+  U4813/ZN (NAND2_X1)                                     4.34     196.57 f
+  U4992/ZN (OAI21_X1)                                     4.03     200.60 r
+  U4993/ZN (NAND2_X1)                                     4.33     204.93 f
+  U5192/ZN (OAI21_X1)                                     4.03     208.96 r
+  U5193/ZN (NAND2_X1)                                     4.33     213.30 f
+  U5639/ZN (OAI21_X1)                                     4.02     217.32 r
+  U5640/ZN (NAND2_X1)                                     4.36     221.68 f
+  U5855/ZN (NAND2_X1)                                     3.55     225.23 r
+  U5856/ZN (NAND2_X1)                                     4.96     230.19 f
+  U7707/ZN (OAI22_X1)                                     4.90     235.09 r
+  U7708/ZN (OAI21_X1)                                     4.41     239.50 f
+  U7709/ZN (AOI21_X1)                                     3.78     243.28 r
+  u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     243.28 r
+  data arrival time                                                243.28
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[2].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.78    9892.22
+  data required time                                              9892.22
+  --------------------------------------------------------------------------
+  data required time                                              9892.22
+  data arrival time                                               -243.28
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9648.94
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[24]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         10.65      10.65 f
+  U2084/ZN (NAND2_X1)                                     3.37      14.02 r
+  U8329/ZN (OAI21_X1)                                     4.78      18.79 f
+  U8331/S (FA_X1)                                        14.87      33.66 r
+  intadd_200/U3/CO (FA_X1)                                9.61      43.27 r
+  intadd_200/U2/CO (FA_X1)                               10.95      54.23 r
+  U7793/Z (AND2_X1)                                       4.88      59.11 r
+  U7794/ZN (OAI22_X1)                                     3.92      63.03 f
+  intadd_199/U2/CO (FA_X1)                                8.16      71.18 f
+  U7792/ZN (INV_X1)                                       2.41      73.60 r
+  intadd_22/U4/CO (FA_X1)                                 9.20      82.79 r
+  intadd_22/U3/CO (FA_X1)                                 8.72      91.51 r
+  intadd_22/U2/CO (FA_X1)                                10.24     101.75 r
+  U2997/ZN (NAND2_X1)                                     4.43     106.18 f
+  U7789/ZN (OAI21_X1)                                     3.68     109.86 r
+  intadd_77/U2/CO (FA_X1)                                11.31     121.17 r
+  U3728/ZN (NOR2_X1)                                      3.28     124.45 f
+  U7780/ZN (OAI21_X1)                                     4.05     128.51 r
+  intadd_76/U3/CO (FA_X1)                                 9.76     138.26 r
+  intadd_76/U2/CO (FA_X1)                                 8.43     146.69 r
+  U7778/ZN (INV_X1)                                       2.46     149.15 f
+  intadd_196/U3/CO (FA_X1)                                7.58     156.73 f
+  intadd_196/U2/CO (FA_X1)                                7.03     163.76 f
+  U4265/ZN (INV_X1)                                       3.23     166.99 r
+  U4266/ZN (NAND2_X1)                                     3.95     170.94 f
+  U4506/ZN (INV_X1)                                       2.34     173.28 r
+  U4507/ZN (OAI22_X1)                                     4.79     178.07 f
+  U4509/ZN (NOR2_X1)                                      4.63     182.71 r
+  U4725/ZN (INV_X1)                                       2.31     185.02 f
+  U4726/ZN (AOI21_X1)                                     3.63     188.65 r
+  U4921/CO (FA_X1)                                        9.82     198.47 r
+  U4923/ZN (NAND2_X1)                                     4.00     202.48 f
+  U5127/ZN (AOI21_X1)                                     5.18     207.66 r
+  U5129/ZN (NAND2_X1)                                     4.36     212.02 f
+  U5407/ZN (AOI21_X1)                                     5.20     217.21 r
+  U5408/ZN (NAND2_X1)                                     4.44     221.65 f
+  U6031/ZN (NAND2_X1)                                     3.56     225.21 r
+  U6032/ZN (NAND2_X1)                                     4.96     230.17 f
+  U7775/ZN (OAI22_X1)                                     4.90     235.07 r
+  U7776/ZN (OAI21_X1)                                     4.41     239.48 f
+  U7777/ZN (AOI21_X1)                                     3.80     243.27 r
+  u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[24]/D (DFFRNQ_X1)
+                                                          0.00     243.27 r
+  data arrival time                                                243.27
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[28].u_pe_mac/acc_out_reg[24]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.78    9892.22
+  data required time                                              9892.22
+  --------------------------------------------------------------------------
+  data required time                                              9892.22
+  data arrival time                                               -243.27
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9648.94
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[23]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         11.70      11.70 r
+  U2217/ZN (NAND2_X1)                                     4.87      16.57 f
+  U8055/ZN (OAI21_X1)                                     4.14      20.71 r
+  U8058/S (FA_X1)                                        14.74      35.46 f
+  U8057/ZN (INV_X1)                                       2.60      38.05 r
+  intadd_145/U3/CO (FA_X1)                                8.65      46.71 r
+  intadd_145/U2/CO (FA_X1)                               10.30      57.00 r
+  U2223/ZN (NAND2_X1)                                     4.17      61.17 f
+  U8049/ZN (AOI21_X1)                                     4.72      65.90 r
+  intadd_144/U2/CO (FA_X1)                               11.49      77.38 r
+  U2658/ZN (NAND2_X1)                                     4.40      81.78 f
+  U2833/ZN (AOI22_X1)                                     7.27      89.05 r
+  U8044/ZN (NAND2_X1)                                     4.16      93.22 f
+  U8045/ZN (OAI21_X1)                                     3.58      96.79 r
+  intadd_50/U2/CO (FA_X1)                                11.30     108.10 r
+  U3111/ZN (NAND2_X1)                                     4.40     112.50 f
+  U3649/ZN (AOI22_X1)                                     5.58     118.08 r
+  U3651/ZN (NOR2_X1)                                      3.84     121.92 f
+  U3903/ZN (OAI21_X1)                                     6.60     128.51 r
+  U8039/Z (AND2_X1)                                       5.36     133.88 r
+  U8040/ZN (OAI22_X1)                                     4.68     138.55 f
+  intadd_49/U3/CO (FA_X1)                                 8.69     147.25 f
+  intadd_49/U2/CO (FA_X1)                                 7.04     154.29 f
+  U4258/ZN (INV_X1)                                       2.12     156.41 r
+  U8607/CO (FA_X1)                                        9.12     165.53 r
+  U4259/ZN (INV_X1)                                       2.92     168.45 f
+  U4260/ZN (NOR2_X1)                                      3.97     172.42 r
+  U4521/ZN (OAI22_X1)                                     5.57     177.99 f
+  U4524/ZN (NOR2_X1)                                      4.49     182.48 r
+  U4711/ZN (OAI21_X1)                                     5.05     187.53 f
+  U4714/ZN (NOR2_X1)                                      4.40     191.93 r
+  U4931/ZN (OAI21_X1)                                     5.02     196.94 f
+  U4934/ZN (NOR2_X1)                                      4.39     201.33 r
+  U5141/ZN (OAI21_X1)                                     5.02     206.35 f
+  U5144/ZN (NOR2_X1)                                      4.39     210.74 r
+  U5504/ZN (OAI21_X1)                                     5.02     215.76 f
+  U5507/ZN (NOR2_X1)                                      4.39     220.15 r
+  U7273/ZN (OAI21_X1)                                     5.18     225.34 f
+  U7859/CO (FA_X1)                                        7.81     233.15 f
+  U7860/ZN (INV_X1)                                       3.15     236.30 r
+  U7865/ZN (OAI21_X1)                                     3.09     239.39 f
+  U7866/ZN (AOI21_X1)                                     3.80     243.19 r
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[23]/D (DFFRNQ_X1)
+                                                          0.00     243.19 r
+  data arrival time                                                243.19
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[13].u_pe_mac/acc_out_reg[23]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.75    9892.25
+  data required time                                              9892.25
+  --------------------------------------------------------------------------
+  data required time                                              9892.25
+  data arrival time                                               -243.19
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9649.06
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[23]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]/CLK (DFFRNQ_X1)
+                                                          0.00       0.00 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[3]/Q (DFFRNQ_X1)
+                                                         11.70      11.70 r
+  U2164/ZN (NAND2_X1)                                     4.87      16.57 f
+  U8134/ZN (OAI21_X1)                                     4.21      20.78 r
+  U8137/S (FA_X1)                                        14.75      35.53 f
+  U8136/ZN (INV_X1)                                       2.60      38.13 r
+  intadd_124/U3/CO (FA_X1)                                8.65      46.78 r
+  intadd_124/U2/CO (FA_X1)                               10.30      57.08 r
+  U2171/ZN (NAND2_X1)                                     4.17      61.25 f
+  U8128/ZN (AOI21_X1)                                     4.72      65.98 r
+  intadd_123/U2/CO (FA_X1)                                9.65      75.63 r
+  U8126/ZN (INV_X1)                                       2.46      78.09 f
+  intadd_122/U2/CO (FA_X1)                                9.02      87.11 f
+  U2771/ZN (INV_X1)                                       3.06      90.16 r
+  U2940/ZN (NOR2_X1)                                      2.30      92.47 f
+  U2941/ZN (OAI22_X1)                                     6.59      99.06 r
+  U8124/Z (AND2_X1)                                       5.61     104.67 r
+  U8125/ZN (OAI22_X1)                                     3.95     108.62 f
+  intadd_43/U2/CO (FA_X1)                                10.04     118.65 f
+  U3615/ZN (INV_X1)                                       3.07     121.73 r
+  U3913/ZN (NOR2_X1)                                      2.30     124.03 f
+  U3914/ZN (OAI22_X1)                                     6.51     130.54 r
+  U8115/Z (OR2_X1)                                        4.61     135.14 r
+  U8116/ZN (AOI22_X1)                                     3.79     138.94 f
+  intadd_42/U3/CO (FA_X1)                                 8.95     147.89 f
+  intadd_42/U2/CO (FA_X1)                                 7.05     154.94 f
+  U4239/ZN (INV_X1)                                       2.12     157.06 r
+  U8694/CO (FA_X1)                                        9.05     166.11 r
+  U4242/ZN (NAND2_X1)                                     4.08     170.19 f
+  U4428/ZN (AOI21_X1)                                     4.93     175.12 r
+  U4431/ZN (NAND2_X1)                                     4.61     179.73 f
+  U4640/ZN (AOI21_X1)                                     5.05     184.78 r
+  U4643/ZN (NAND2_X1)                                     4.63     189.41 f
+  U4838/ZN (AOI21_X1)                                     5.05     194.46 r
+  U4841/ZN (NAND2_X1)                                     4.63     199.09 f
+  U5057/ZN (AOI21_X1)                                     5.05     204.15 r
+  U5060/ZN (NAND2_X1)                                     4.63     208.78 f
+  U5297/ZN (AOI21_X1)                                     5.05     213.83 r
+  U5300/ZN (NAND2_X1)                                     4.63     218.46 f
+  U6813/ZN (AOI21_X1)                                     5.12     223.58 r
+  U6815/ZN (NAND2_X1)                                     4.71     228.29 f
+  U7703/ZN (NAND2_X1)                                     3.57     231.86 r
+  U7704/ZN (NAND2_X1)                                     4.91     236.78 f
+  U7705/ZN (OAI21_X1)                                     3.47     240.24 r
+  U7706/ZN (AOI21_X1)                                     3.25     243.49 f
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[23]/D (DFFRNQ_X1)
+                                                          0.00     243.49 f
+  data arrival time                                                243.49
+
+  clock sysclk (rise edge)                            10000.00   10000.00
+  clock network delay (ideal)                             0.00   10000.00
+  clock uncertainty                                    -100.00    9900.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[23]/CLK (DFFRNQ_X1)
+                                                          0.00    9900.00 r
+  library setup time                                     -7.27    9892.73
+  data required time                                              9892.73
+  --------------------------------------------------------------------------
+  data required time                                              9892.73
+  data arrival time                                               -243.49
+  --------------------------------------------------------------------------
+  slack (MET)                                                     9649.24
+
+
+1

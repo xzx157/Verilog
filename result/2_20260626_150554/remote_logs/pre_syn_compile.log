@@ -1,0 +1,42 @@
+Command: vcs -full64 -sverilog -timescale=1ns/1ns +v2k -o simv ../common/mem.v ../../rtl/sram_model.v \
+../../rtl/accelerator_sram_ext.v ../../rtl/accelerator_top.v testbench_top.v -l compile.log \
+
+                         Chronologic VCS (TM)
+      Version Q-2020.03-SP2-7_Full64 -- Wed Jun 24 15:18:25 2026
+               Copyright (c) 1991-2020 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file '../common/mem.v'
+Parsing design file '../../rtl/sram_model.v'
+Parsing design file '../../rtl/accelerator_sram_ext.v'
+Parsing design file '../../rtl/accelerator_top.v'
+Parsing design file 'testbench_top.v'
+Top Level Modules:
+       testbench_top
+TimeScale is 1 ns / 1 ns
+Starting vcs inline pass...
+
+3 modules and 0 UDP read.
+recompiling module ram
+recompiling module sram_model
+recompiling module testbench_top
+All of 3 modules done
+make[1]: Entering directory '/home/almalinux/Verilog/main/testbench/pre-syn/csrc' \
+
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/opt/eda/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib -L/opt/eda/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _104000_archive_1.so \
+SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
+-lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /opt/eda/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive          /opt/eda/Synopsys/vcs/Q-2020.03-SP2-7/linux64/lib/vcs_save_restore_new.o \
+-ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory '/home/almalinux/Verilog/main/testbench/pre-syn/csrc' \
+
+CPU time: .500 seconds to compile + .273 seconds to elab + .153 seconds to link

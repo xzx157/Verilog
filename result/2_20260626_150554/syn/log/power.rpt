@@ -1,0 +1,55 @@
+Loading db file '/home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db'
+Information: Updating design information... (UID-85)
+Warning: Design 'accelerator_logic_top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : accelerator_logic_top
+Version: R-2020.09-SP4
+Date   : Fri Jun 26 15:03:01 2026
+****************************************
+
+
+Library(s) Used:
+
+    NanGate_15nm_OCL (File: /home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db)
+
+
+Operating Conditions: slow   Library: NanGate_15nm_OCL
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 0.72 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ps
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   2.4687 mW   (71%)
+  Net Switching Power  =   1.0208 mW   (29%)
+                         ---------
+Total Dynamic Power    =   3.4895 mW  (100%)
+
+Cell Leakage Power     =  12.6549 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           1.3568        3.2022e-02        2.3813e+09            3.7702  (  23.35%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      1.1118            0.9888        1.0274e+10           12.3742  (  76.65%)
+--------------------------------------------------------------------------------------------------
+Total              2.4687 mW         1.0208 mW     1.2655e+10 pW        16.1444 mW
+1

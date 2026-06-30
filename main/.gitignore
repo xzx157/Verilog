@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated matrix IO data
+input_mem.csv
+result_mem.csv
+in.npy
+
+# Simulation/synthesis generated artifacts
+sim*.vvp
+ppa_logic_check
+post_tb_syntax_check
+
+# VCS/Icarus outputs
+simv
+simv.daidir/
+csrc/
+DVEfiles/
+*.vcd
+*.vpd
+*.fsdb
+ucli.key
+compile.log
+run.log
+sxcmd.log
+
+# Temporary logs
+remote_logs/*.log

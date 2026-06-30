@@ -1,0 +1,50 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : accelerator_logic_top
+Version: R-2020.09-SP4
+Date   : Tue Jun 30 04:16:35 2026
+****************************************
+
+
+Library(s) Used:
+
+    NanGate_15nm_OCL (File: /home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db)
+
+
+Operating Conditions: slow   Library: NanGate_15nm_OCL
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 0.72 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ps
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 211.6248 uW   (62%)
+  Net Switching Power  = 132.1159 uW   (38%)
+                         ---------
+Total Dynamic Power    = 343.7407 uW  (100%)
+
+Cell Leakage Power     =   5.0590 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network  4.7040e-04        2.4974e-02        1.4247e+06        2.6869e-02  (   0.50%)
+register           0.1048        2.8020e-03        1.1785e+09            1.2861  (  23.80%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.1064            0.1043        3.8791e+09            4.0898  (  75.70%)
+--------------------------------------------------------------------------------------------------
+Total              0.2116 mW         0.1321 mW     5.0590e+09 pW         5.4028 mW
+1

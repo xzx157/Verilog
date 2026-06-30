@@ -1,0 +1,12 @@
+Command: /home/almalinux/Verilog/main/testbench/post-syn/./simv -l run.log
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP2-7_Full64; Runtime version Q-2020.03-SP2-7_Full64;  Jun 26 16:16 2026
+Doing SDF annotation ...... Done
+[POST-SYN] PASS
+$finish called from file "testbench_top.v", line 183.
+$finish at simulation time               137000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 137000 ps
+CPU Time:      0.370 seconds;       Data structure size:   6.0Mb
+Fri Jun 26 16:16:27 2026

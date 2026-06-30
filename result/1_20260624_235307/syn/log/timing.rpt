@@ -1,0 +1,1087 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : accelerator_logic_top
+Version: R-2020.09-SP4
+Date   : Wed Jun 24 15:28:12 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: NanGate_15nm_OCL
+Wire Load Model Mode: top
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/A[0] (pe_mac_191_DW01_add_0_DW01_add_22)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/add_22/SUM[31] (pe_mac_191_DW01_add_0_DW01_add_22)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[0].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/A[0] (pe_mac_188_DW01_add_0_DW01_add_72)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/add_22/SUM[31] (pe_mac_188_DW01_add_0_DW01_add_72)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[3].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/A[0] (pe_mac_187_DW01_add_0_DW01_add_96)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/add_22/SUM[31] (pe_mac_187_DW01_add_0_DW01_add_96)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[4].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/A[0] (pe_mac_186_DW01_add_0_DW01_add_120)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.73     254.63 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.35 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.82     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/add_22/SUM[31] (pe_mac_186_DW01_add_0_DW01_add_120)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[5].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/A[0] (pe_mac_184_DW01_add_0_DW01_add_168)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/add_22/SUM[31] (pe_mac_184_DW01_add_0_DW01_add_168)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[7].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/A[0] (pe_mac_181_DW01_add_0_DW01_add_240)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/add_22/SUM[31] (pe_mac_181_DW01_add_0_DW01_add_240)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[10].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/A[0] (pe_mac_180_DW01_add_0_DW01_add_264)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/add_22/SUM[31] (pe_mac_180_DW01_add_0_DW01_add_264)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[11].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/A[0] (pe_mac_179_DW01_add_0_DW01_add_288)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/add_22/SUM[31] (pe_mac_179_DW01_add_0_DW01_add_288)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[12].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/A[0] (pe_mac_177_DW01_add_0_DW01_add_336)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/add_22/SUM[31] (pe_mac_177_DW01_add_0_DW01_add_336)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[0].gen_cols[14].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+  Startpoint: u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[0]
+              (rising edge-triggered flip-flop clocked by sysclk)
+  Endpoint: u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[31]
+            (rising edge-triggered flip-flop clocked by sysclk)
+  Path Group: sysclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock sysclk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[0]/CLK (DFFRNQ_X1)
+                                                          0.00 #     0.00 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[0]/Q (DFFRNQ_X1)
+                                                         13.33      13.33 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/A[0] (pe_mac_171_DW01_add_0_DW01_add_98)
+                                                          0.00      13.33 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1/ZN (INV_X1)
+                                                          2.36      15.69 f
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U2/ZN (NOR2_X1)
+                                                          3.08      18.76 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_1/CO (FA_X1)
+                                                          8.78      27.54 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_2/CO (FA_X1)
+                                                          8.71      36.25 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_3/CO (FA_X1)
+                                                          8.71      44.97 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_4/CO (FA_X1)
+                                                          8.71      53.68 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_5/CO (FA_X1)
+                                                          8.71      62.39 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_6/CO (FA_X1)
+                                                          8.71      71.11 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_7/CO (FA_X1)
+                                                          8.71      79.82 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_8/CO (FA_X1)
+                                                          8.71      88.53 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_9/CO (FA_X1)
+                                                          8.71      97.25 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_10/CO (FA_X1)
+                                                          8.71     105.96 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_11/CO (FA_X1)
+                                                          8.71     114.67 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_12/CO (FA_X1)
+                                                          8.71     123.39 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_13/CO (FA_X1)
+                                                          8.71     132.10 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_14/CO (FA_X1)
+                                                          8.71     140.81 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_15/CO (FA_X1)
+                                                          8.71     149.53 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_16/CO (FA_X1)
+                                                          8.73     158.25 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_17/CO (FA_X1)
+                                                          8.82     167.07 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_18/CO (FA_X1)
+                                                          8.82     175.90 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_19/CO (FA_X1)
+                                                          8.82     184.72 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_20/CO (FA_X1)
+                                                          8.82     193.54 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_21/CO (FA_X1)
+                                                          8.73     202.27 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_22/CO (FA_X1)
+                                                          8.73     210.99 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_23/CO (FA_X1)
+                                                          8.73     219.72 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_24/CO (FA_X1)
+                                                          8.73     228.45 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_25/CO (FA_X1)
+                                                          8.73     237.17 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_26/CO (FA_X1)
+                                                          8.73     245.90 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_27/CO (FA_X1)
+                                                          8.82     254.72 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_28/CO (FA_X1)
+                                                          8.73     263.45 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_29/CO (FA_X1)
+                                                          8.73     272.17 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_30/CO (FA_X1)
+                                                          8.73     280.90 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/U1_31/S (FA_X1)
+                                                         13.50     294.40 f
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/add_22/SUM[31] (pe_mac_171_DW01_add_0_DW01_add_98)
+                                                          0.00     294.40 f
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/U16/ZN (AOI22_X1)
+                                                          3.63     298.04 r
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/U15/ZN (INV_X1)
+                                                          1.96     300.00 f
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[31]/D (DFFRNQ_X1)
+                                                          0.00     300.00 f
+  data arrival time                                                300.00
+
+  clock sysclk (rise edge)                             2000.00    2000.00
+  clock network delay (ideal)                             0.00    2000.00
+  clock uncertainty                                    -100.00    1900.00
+  u_compute_core/gen_rows[1].gen_cols[4].u_pe_mac/acc_out_reg[31]/CLK (DFFRNQ_X1)
+                                                          0.00    1900.00 r
+  library setup time                                     -6.98    1893.02
+  data required time                                              1893.02
+  --------------------------------------------------------------------------
+  data required time                                              1893.02
+  data arrival time                                               -300.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                     1593.02
+
+
+1

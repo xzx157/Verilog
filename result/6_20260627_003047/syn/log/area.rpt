@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : accelerator_logic_top
+Version: R-2020.09-SP4
+Date   : Fri Jun 26 16:28:37 2026
+****************************************
+
+Library(s) Used:
+
+    NanGate_15nm_OCL (File: /home/almalinux/Verilog/main/pdk/NanGate_15nm/front_end/timing_power_noise/CCS/NanGate_15nm_OCL_slow_conditional_ccs.db)
+
+Number of ports:                        12216
+Number of nets:                         29781
+Number of cells:                        16270
+Number of combinational cells:          14685
+Number of sequential cells:              1200
+Number of macros/black boxes:               0
+Number of buf/inv:                       3741
+Number of references:                       1
+
+Combinational area:               6517.997755
+Buf/Inv area:                      607.961101
+Noncombinational area:            1533.542347
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                  8051.540102
+Total area:                 undefined
+1
