@@ -1,0 +1,10 @@
+Command: /home/almalinux/Verilog/main/testbench/pre-syn/./simv -l run.log
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP2-7_Full64; Runtime version Q-2020.03-SP2-7_Full64;  Jun 24 15:18 2026
+$finish called from file "testbench_top.v", line 79.
+$finish at simulation time             44209605
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 44209605 ns
+CPU Time:     32.000 seconds;       Data structure size:   2.1Mb
+Wed Jun 24 15:19:04 2026

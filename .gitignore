@@ -27,3 +27,5 @@ sxcmd.log
 
 # Temporary logs
 remote_logs/*.log
+
+*.gds
